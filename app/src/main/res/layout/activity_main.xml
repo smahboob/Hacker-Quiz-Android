@@ -1,23 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
-    <!--Welcome Text-->
-    <TextView
-        android:gravity="center"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <!--Welcome Text-->
+        <TextView
+            android:gravity="start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_marginBottom="40dp"
+            android:textSize="20sp"
+            android:text="@string/hello_saad_greeting" />
+
+        <!--High score text-->
+        <TextView
+            android:gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_marginBottom="40dp"
+            android:textSize="20sp"
+            android:text="@string/high_score_87_text" />
+
+    </LinearLayout>
+
+    <!--Category Text-->
+    <TextView
+        android:gravity="start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textStyle="bold"
+        android:padding="10dp"
         android:layout_marginBottom="40dp"
-        android:textSize="40dp"
-        android:text="Welcome!" />
+        android:textSize="30sp"
+        android:text="@string/categories_text" />
+
 
     <!--Linear Layout for the quiz categories, two in each row -->
     <LinearLayout
@@ -26,6 +56,7 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
+        <!--Python-->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card0"
             android:layout_width="wrap_content"
@@ -40,29 +71,31 @@
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="100dp"
-                    app:srcCompat="@drawable/code_24_vector_icon"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="logo" />
+                    android:src="@drawable/python_logo"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/logo" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Python"
+                    android:text="@string/python_text"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/python_quiz_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Start Quiz"
+                    android:text="@string/start_quiz_text"
                     style="?attr/borderlessButtonStyle" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
+
+        <!--Java-->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card1"
             android:layout_width="wrap_content"
@@ -77,23 +110,23 @@
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="100dp"
-                    app:srcCompat="@drawable/code_24_vector_icon"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="logo" />
+                    android:src="@drawable/java_logo"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/logo" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Java"
+                    android:text="@string/java_text"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/java_quiz_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Start Quiz"
+                    android:text="@string/start_quiz_text"
                     style="?attr/borderlessButtonStyle" />
 
             </LinearLayout>
@@ -109,6 +142,7 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
+        <!--CPP-->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card2"
             android:layout_width="wrap_content"
@@ -123,29 +157,31 @@
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="100dp"
-                    app:srcCompat="@drawable/code_24_vector_icon"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="logo" />
+                    android:src="@drawable/cpp_logo"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/logo" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="C++"
+                    android:text="@string/cpp_text"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/cpp_quiz_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Start Quiz"
+                    android:text="@string/start_quiz_text"
                     style="?attr/borderlessButtonStyle" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
+
+        <!--OPP-->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card3"
             android:layout_width="wrap_content"
@@ -160,23 +196,23 @@
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="100dp"
-                    app:srcCompat="@drawable/code_24_vector_icon"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="logo" />
+                    android:src="@drawable/object_oriented_logo"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/logo" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="OOP"
+                    android:text="@string/oop_text"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/oop_quiz_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Start Quiz"
+                    android:text="@string/start_quiz_text"
                     style="?attr/borderlessButtonStyle" />
 
             </LinearLayout>
