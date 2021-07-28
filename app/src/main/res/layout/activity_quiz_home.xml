@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        tools:context=".QuizHomeActivity">
+
+        <!--Welcome Text-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="start">
+
+            <!--Welcome Text-->
+            <TextView
+                android:id="@+id/welcomeTextMain"
+                android:gravity="start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:text="@string/hello_saad_greeting" />
+        </LinearLayout>
+
+        <!--Category Text-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start">
+
+        <!--Category Text-->
+            <TextView
+                android:gravity="start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="40dp"
+                android:textSize="25sp"
+                android:text="@string/categories_text" />
+        </LinearLayout>
+
+        <!--Linear Layout for Python and Java -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--Python-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/card_background"
+                    android:gravity="center">
+
+                    <!-- Media -->
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/python_logo"
+                        android:scaleType="centerInside"
+                        android:contentDescription="@string/logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/python_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/python_quiz_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/start_quiz_text"
+                        style="?attr/borderlessButtonStyle" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!--Java-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/card_background"
+                    android:gravity="center">
+
+                    <!-- Media -->
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/java_logo"
+                        android:scaleType="centerInside"
+                        android:contentDescription="@string/logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/java_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/java_quiz_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/start_quiz_text"
+                        style="?attr/borderlessButtonStyle" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!--Linear Layout for CPP and OPP -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <!--CPP-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/card_background"
+                    android:gravity="center">
+
+                    <!-- Media -->
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/cpp_logo"
+                        android:scaleType="centerInside"
+                        android:contentDescription="@string/logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cpp_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cpp_quiz_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/start_quiz_text"
+                        style="?attr/borderlessButtonStyle" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!--OPP-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/card_background"
+                    android:gravity="center">
+
+                    <!-- Media -->
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/oop"
+                        android:scaleType="centerInside"
+                        android:contentDescription="@string/logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/oop_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/oop_quiz_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/start_quiz_text"
+                        style="?attr/borderlessButtonStyle" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

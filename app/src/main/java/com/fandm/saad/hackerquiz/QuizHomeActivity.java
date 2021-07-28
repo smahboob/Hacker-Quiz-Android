@@ -4,33 +4,35 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class QuizHomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_quiz_home);
 
+        //welcome text
+        TextView welcomeText = findViewById(R.id.welcomeTextMain);
+        String welcome = getResources().getString(R.string.greeting) + ", " + getIntent().getStringExtra("user_name");
+        welcomeText.setText(welcome);
+
+        //buttons to start quiz
         Button python_btn = findViewById(R.id.python_quiz_button);
         Button java_btn = findViewById(R.id.java_quiz_button);
         Button cpp_btn = findViewById(R.id.cpp_quiz_button);
         Button oop_btn = findViewById(R.id.oop_quiz_button);
 
         python_btn.setOnClickListener(v -> startQuiz("python"));
-
         java_btn.setOnClickListener(v -> startQuiz("java"));
-
         cpp_btn.setOnClickListener(v -> startQuiz("cpp"));
-
         oop_btn.setOnClickListener(v -> startQuiz("oop"));
     }
 
     private void startQuiz(String type) {
-        Intent start_quiz = new Intent(this, DisplayQuestion.class);
+        Intent start_quiz = new Intent(this, ChooseDifficultyActivity.class);
         start_quiz.putExtra("quiz_type", type);
         startActivity(start_quiz);
     }

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:id="@+id/quiz_question_id"
-    tools:context=".DisplayQuestion">
+    tools:context=".DisplayQuestionActivity">
 
     <TextView
         android:id="@+id/text_view_question"

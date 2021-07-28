@@ -4,19 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.fandm.saad.hackerquiz.database.QuizDatabaseHelper;
+import com.fandm.saad.hackerquiz.models.Question;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Collections;
 import java.util.List;
 
-public class DisplayQuestion extends AppCompatActivity {
+public class DisplayQuestionActivity extends AppCompatActivity {
 
     private TextView question_statement;
     private RadioGroup answerRadioGroup;
@@ -37,7 +37,9 @@ public class DisplayQuestion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_question);
-        String quiz_type = getIntent().getStringExtra("quiz_type");
+        String category = getIntent().getStringExtra("quiz_type");
+        String difficulty_level = getIntent().getStringExtra("difficulty_level");
+
         question_statement = findViewById(R.id.text_view_question);
         answerRadioGroup = findViewById(R.id.radio_group);
         answer_1 = findViewById(R.id.radio_button1);
@@ -46,13 +48,13 @@ public class DisplayQuestion extends AppCompatActivity {
         answer_4 = findViewById(R.id.radio_button4);
         confirm_button = findViewById(R.id.button_confirm_next);
 
-        loadQuiz(quiz_type);
+        loadQuiz(category, difficulty_level);
     }
 
     //load the database and show question
-    private void loadQuiz(String quiz_type) {
+    private void loadQuiz(String category, String difficulty_level) {
         QuizDatabaseHelper quizDatabaseHelper = new QuizDatabaseHelper(this);
-        questionList = quizDatabaseHelper.getQuestionOfType(quiz_type);
+        questionList = quizDatabaseHelper.getQuestionsOfCategoryAndDifficulty(difficulty_level,category);
         questionCountTotal = questionList.size();
         Collections.shuffle(questionList);
 
@@ -62,12 +64,10 @@ public class DisplayQuestion extends AppCompatActivity {
             if(!answered){
                 if(answer_1.isChecked() || answer_2.isChecked() || answer_3.isChecked() || answer_4.isChecked()){
                     check_answer();
-                }
-                else{
+                } else{
                     Snackbar.make(findViewById(R.id.quiz_question_id), "Please select an answer to proceed.", Snackbar.LENGTH_LONG).show();
                 }
-            }
-            else{
+            } else{
                 showNextQuestion();
             }
         });

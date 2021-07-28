@@ -3,6 +3,7 @@
     <string name="confirm_button_text">Confirm</string>
     <string name="button_text_next">Next</string>
     <string name="hello_saad_greeting">Hello Saad!</string>
+    <string name="greeting">Hello </string>
     <string name="categories_text">Categories</string>
     <string name="high_score_87_text">High Score:87%</string>
     <string name="logo">logo</string>
@@ -11,4 +12,16 @@
     <string name="java_text">Java</string>
     <string name="cpp_text">C++</string>
     <string name="oop_text">OOP</string>
+    <string name="full_name">Full Name</string>
+    <string name="start">Start</string>
+    <string name="medium_diff">Medium</string>
+    <string name="easy_diff">Easy</string>
+    <string name="hard_diff">Hard</string>
+    <string name="user_name">User Name</string>
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone Number</string>
+    <string name="continue_btn">Continue</string>
+    <string name="verify">Verification Code</string>
+    <string name="choose_difficulty_level_text">Choose Difficulty Level</string>
 </resources>

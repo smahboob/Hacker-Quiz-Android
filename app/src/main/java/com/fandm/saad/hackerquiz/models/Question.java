@@ -1,4 +1,4 @@
-package com.fandm.saad.hackerquiz;
+package com.fandm.saad.hackerquiz.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
