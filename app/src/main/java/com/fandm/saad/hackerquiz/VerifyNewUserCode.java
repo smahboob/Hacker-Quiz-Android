@@ -30,6 +30,8 @@ public class VerifyNewUserCode extends AppCompatActivity {
 
         TextInputLayout verification_code_input = findViewById(R.id.verification_code_new_user_text_input);
         Button verification_code_btn = findViewById(R.id.verification_code_new_user_continue_btn);
+        QuizDatabaseHelper databaseHelper = new QuizDatabaseHelper(getApplicationContext());
+        databaseHelper.getWritableDatabase();
 
         verification_code_btn.setOnClickListener(v -> {
             String input_code = Objects.requireNonNull(verification_code_input.getEditText()).getText().toString();
@@ -40,10 +42,9 @@ public class VerifyNewUserCode extends AppCompatActivity {
             }
 
             if(Objects.requireNonNull(verification_code_input.getEditText()).getText().toString().equals(verification_code)){
-                QuizDatabaseHelper databaseHelper = new QuizDatabaseHelper(this);
-                User current_user = new User(full_name,phone_number);
-                databaseHelper.add_new_user(current_user);
+                databaseHelper.add_new_user(new User(full_name,phone_number));
 
+                User current_user = new User(full_name,phone_number);
                 Intent startQuiz = new Intent(this, QuizHomeActivity.class);
                 startQuiz.putExtra("user_data", Parcels.wrap(current_user));
                 startActivity(startQuiz);

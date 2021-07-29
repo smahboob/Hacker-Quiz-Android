@@ -19,7 +19,7 @@ import java.util.List;
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "HackerQuiz.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private SQLiteDatabase db;
 
     //constructor
@@ -35,6 +35,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_USERS_TABLE = "CREATE TABLE " + UserTable.TABLE_NAME + " ( " +
                 UserTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 UserTable.COLUMN_USER_FULL_NAME + " TEXT, " +
+                UserTable.COLUMN_USER_PHONE_NUMBER + " TEXT, " +
                 UserTable.COLUMN_USER_PYTHON_EASY_SCORE + " INTEGER, " +
                 UserTable.COLUMN_USER_PYTHON_MED_SCORE + " INTEGER, " +
                 UserTable.COLUMN_USER_PYTHON_HARD_SCORE + " INTEGER, " +
@@ -66,14 +67,15 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_USERS_TABLE);
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
 
-        Log.d("TAG", "execute sql create statements.");
-
         fillQuestionsTable();
     }
 
     //add a new user to the user table
     public void add_new_user(User user){
+
+        this.db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+
         cv.put(UserTable.COLUMN_USER_FULL_NAME, user.getFull_name());
         cv.put(UserTable.COLUMN_USER_PHONE_NUMBER, user.getPhone_number());
 

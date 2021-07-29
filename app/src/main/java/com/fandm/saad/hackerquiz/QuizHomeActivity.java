@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.fandm.saad.hackerquiz.models.User;
+
+import org.parceler.Parcels;
+
 public class QuizHomeActivity extends AppCompatActivity {
 
     @Override
@@ -15,8 +19,9 @@ public class QuizHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_home);
 
         //welcome text
+        User current_user = Parcels.unwrap(getIntent().getParcelableExtra("user_data"));
         TextView welcomeText = findViewById(R.id.welcomeTextMain);
-        String welcome = getResources().getString(R.string.greeting) + ", " + getIntent().getStringExtra("user_name");
+        String welcome = getResources().getString(R.string.greeting) + ", " + current_user.getFull_name();
         welcomeText.setText(welcome);
 
         //buttons to start quiz

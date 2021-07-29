@@ -13,7 +13,7 @@ public final class QuizContract {
         public static final String COLUMN_USER_PYTHON_EASY_SCORE = "python_easy";
         public static final String COLUMN_USER_PYTHON_MED_SCORE = "python_med";
         public static final String COLUMN_USER_PYTHON_HARD_SCORE = "python_hard";
-        public static final String COLUMN_USER_JAVA_EASY_SCORE = "ava_easy";
+        public static final String COLUMN_USER_JAVA_EASY_SCORE = "java_easy";
         public static final String COLUMN_USER_JAVA_MED_SCORE = "java_med";
         public static final String COLUMN_USER_JAVA_HARD_SCORE = "java_hard";
         public static final String COLUMN_USER_CPP_EASY_SCORE = "cpp_easy";

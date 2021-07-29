@@ -10,11 +10,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.fandm.saad.hackerquiz.database.QuizDatabaseHelper;
+import com.fandm.saad.hackerquiz.models.User;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import java.util.Random;
@@ -31,6 +33,9 @@ public class LaunchQuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_launcher);
 
+        QuizDatabaseHelper databaseHelper = new QuizDatabaseHelper(getApplicationContext());
+        databaseHelper.getReadableDatabase();
+
         //lottie animation
         LottieAnimationView animationView = findViewById(R.id.animationView);
         animationView.setAnimation(R.raw.welcome);
@@ -40,10 +45,10 @@ public class LaunchQuizActivity extends AppCompatActivity {
 
         //button to start the quiz
         Button start = findViewById(R.id.start_button_launch);
-        start.setOnClickListener(v -> authorizeUser());
+        start.setOnClickListener(v -> authorizeUser(databaseHelper));
     }
 
-    private void authorizeUser() {
+    private void authorizeUser(QuizDatabaseHelper databaseHelper) {
         String phone_number = Objects.requireNonNull(phone_number_ET.getEditText()).getText().toString();
 
         if(phone_number.isEmpty()){
@@ -59,8 +64,8 @@ public class LaunchQuizActivity extends AppCompatActivity {
         }
 
         else {
-            QuizDatabaseHelper databaseHelper = new QuizDatabaseHelper(this);
             String verification_code = usingUUID().substring(0,6);
+            Log.d("TAG: ", verification_code);
 
             //if the user exists in database, send them code to their phone number to identify them correctly and log them in
             if(databaseHelper.user_already_exists(phone_number)){
@@ -84,10 +89,7 @@ public class LaunchQuizActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 2) {
-            if (permissions[0].equalsIgnoreCase
-                    (Manifest.permission.SEND_SMS)
-                    && grantResults[0] ==
-                    PackageManager.PERMISSION_GRANTED) {
+            if (permissions[0].equalsIgnoreCase(Manifest.permission.SEND_SMS) && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission was granted. Enable sms button.
                 Toast.makeText(this, "Permission granted! Send message now.", Toast.LENGTH_SHORT).show();
 
