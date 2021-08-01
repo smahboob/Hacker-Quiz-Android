@@ -1,5 +1,6 @@
 package com.fandm.saad.hackerquiz;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -15,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class DisplayQuestionActivity extends AppCompatActivity {
 
@@ -37,6 +39,12 @@ public class DisplayQuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_question);
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.action_bar_custom);
+        TextView tv = findViewById(R.id.action_bar_title);
+        tv.setText(getResources().getString(R.string.quiz_title));
+
 
         String category = getIntent().getStringExtra("quiz_type");
         String difficulty_level = getIntent().getStringExtra("difficulty_level");

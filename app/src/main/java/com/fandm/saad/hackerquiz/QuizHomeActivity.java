@@ -1,5 +1,6 @@
 package com.fandm.saad.hackerquiz;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,7 @@ import com.fandm.saad.hackerquiz.models.User;
 import org.parceler.Parcels;
 
 import java.text.MessageFormat;
+import java.util.Objects;
 
 public class QuizHomeActivity extends AppCompatActivity {
 
@@ -26,6 +28,11 @@ public class QuizHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_home);
 
+        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.action_bar_custom);
+        TextView tv = findViewById(R.id.action_bar_title);
+        tv.setText(getResources().getString(R.string.quiz_title));
+
         //initialize stuff
         initializeViews();
 
@@ -36,9 +43,18 @@ public class QuizHomeActivity extends AppCompatActivity {
         String device_id = getIntent().getStringExtra("user_device_id");
         User current_user = databaseHelper.getFullUserInformation(device_id);
 
+        String user_name = current_user.getFull_name();
+        int idx = user_name.indexOf(" ");
+        if(idx != -1){
+            user_name = user_name.substring(0,idx+1);
+        }
+        if(user_name.length() > 7){
+            user_name = user_name + "\n";
+        }
+
         //welcome text
         TextView welcomeText = findViewById(R.id.welcomeTextMain);
-        String welcome = getResources().getString(R.string.greeting) + ", " + current_user.getFull_name();
+        String welcome = getResources().getString(R.string.greeting) + ", " + user_name;
         welcomeText.setText(welcome);
 
 

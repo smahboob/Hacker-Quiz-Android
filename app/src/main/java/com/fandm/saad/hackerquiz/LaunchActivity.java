@@ -1,5 +1,6 @@
 package com.fandm.saad.hackerquiz;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,7 +11,11 @@ import android.provider.Settings;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.fandm.saad.hackerquiz.database.QuizDatabaseHelper;
+
+import java.util.Objects;
 
 public class LaunchActivity extends AppCompatActivity {
 
@@ -23,6 +28,11 @@ public class LaunchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.action_bar_custom);
+        TextView tv = findViewById(R.id.action_bar_title);
+        tv.setText(getResources().getString(R.string.quiz_title));
 
         //initialize database
         databaseHelper = new QuizDatabaseHelper(getApplicationContext());

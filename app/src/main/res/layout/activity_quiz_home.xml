@@ -13,42 +13,40 @@
         android:gravity="center"
         tools:context=".QuizHomeActivity">
 
-        <!--Welcome Text-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:gravity="start">
 
-            <!--Welcome Text-->
+        <!--Welcome Text and Image-->
+        <LinearLayout
+            android:id="@+id/welcomeNameView"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/home_background"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/welcomeTextMain"
-                android:gravity="start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="30sp"
-                android:text="@string/hello_saad_greeting" />
-        </LinearLayout>
-
-        <!--Category Text-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start">
-
-        <!--Category Text-->
-            <TextView
+                android:layout_margin="20dp"
+                android:layout_marginStart="30dp"
                 android:gravity="start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="40dp"
-                android:textSize="25sp"
-                android:text="@string/categories_text" />
-        </LinearLayout>
+                tools:text="Hello, Saad"
+                android:textColor="@color/white"
+                android:textSize="35sp" />
 
+            <ImageView
+                android:id="@+id/home_logo"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/circle_cropped_logo"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:contentDescription="@string/logo">
+            </ImageView>
+
+
+        </LinearLayout>
 
 
         <!--Linear Layout for Python and Java -->

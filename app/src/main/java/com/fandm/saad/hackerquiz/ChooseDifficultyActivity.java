@@ -1,10 +1,14 @@
 package com.fandm.saad.hackerquiz;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.Objects;
 
 public class ChooseDifficultyActivity extends AppCompatActivity {
 
@@ -12,6 +16,12 @@ public class ChooseDifficultyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_difficulty);
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.action_bar_custom);
+        TextView tv = findViewById(R.id.action_bar_title);
+        tv.setText(getResources().getString(R.string.diff_title));
+
 
         String quiz_type = getIntent().getStringExtra("quiz_type");
         String device_id = getIntent().getStringExtra("user_data_id");
