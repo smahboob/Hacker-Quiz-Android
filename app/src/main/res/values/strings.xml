@@ -24,4 +24,6 @@
     <string name="continue_btn">Continue</string>
     <string name="verify">Verification Code</string>
     <string name="choose_difficulty_level_text">Choose Difficulty Level</string>
+    <string name="sample_percentage_string">0%</string>
+    <string name="logo_splash">logo</string>
 </resources>

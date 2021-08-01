@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 
 import androidx.annotation.Nullable;
@@ -19,7 +18,7 @@ import java.util.List;
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "HackerQuiz.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
     private SQLiteDatabase db;
 
     //constructor
@@ -35,7 +34,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_USERS_TABLE = "CREATE TABLE " + UserTable.TABLE_NAME + " ( " +
                 UserTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 UserTable.COLUMN_USER_FULL_NAME + " TEXT, " +
-                UserTable.COLUMN_USER_PHONE_NUMBER + " TEXT, " +
+                UserTable.COLUMN_USER_PHONE_ID + " TEXT, " +
                 UserTable.COLUMN_USER_PYTHON_EASY_SCORE + " INTEGER, " +
                 UserTable.COLUMN_USER_PYTHON_MED_SCORE + " INTEGER, " +
                 UserTable.COLUMN_USER_PYTHON_HARD_SCORE + " INTEGER, " +
@@ -77,7 +76,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
 
         cv.put(UserTable.COLUMN_USER_FULL_NAME, user.getFull_name());
-        cv.put(UserTable.COLUMN_USER_PHONE_NUMBER, user.getPhone_number());
+        cv.put(UserTable.COLUMN_USER_PHONE_ID, user.getAndroid_device_id());
 
         cv.put(UserTable.COLUMN_USER_PYTHON_EASY_SCORE, user.getPython_score_easy());
         cv.put(UserTable.COLUMN_USER_PYTHON_MED_SCORE, user.getPython_score_medium());
@@ -99,10 +98,10 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
     }
 
     //this would check in the database if this user_id and user_email are already in the system
-    public boolean user_already_exists(String phone_number){
+    public boolean user_already_exists(String android_device_id){
         db = getReadableDatabase();
-        String[] selectionArgs = new String[]{phone_number};
-        String query = "SELECT * FROM " + UserTable.TABLE_NAME + " WHERE " + UserTable.COLUMN_USER_PHONE_NUMBER + " = ?";
+        String[] selectionArgs = new String[]{android_device_id};
+        String query = "SELECT * FROM " + UserTable.TABLE_NAME + " WHERE " + UserTable.COLUMN_USER_PHONE_ID + " = ?";
 
         Cursor c = db.rawQuery(query,selectionArgs);
 
@@ -274,17 +273,17 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         return questionList;
     }
 
-    //get full user information provided their phone number
-    public User getFullUserInformation(String phone_number){
+    //get full user information provided their phone id
+    public User getFullUserInformation(String android_id){
         User user = new User();
         db = getReadableDatabase();
-        String[] selectionArgs = new String[]{phone_number};
-        String query = "SELECT * FROM " + UserTable.TABLE_NAME + " WHERE " + UserTable.COLUMN_USER_PHONE_NUMBER + " = ?";
+        String[] selectionArgs = new String[]{android_id};
+        String query = "SELECT * FROM " + UserTable.TABLE_NAME + " WHERE " + UserTable.COLUMN_USER_PHONE_ID + " = ?";
         Cursor c = db.rawQuery(query,selectionArgs);
 
         if (c.moveToFirst()) {
             user.setFull_name((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_FULL_NAME))));
-            user.setPhone_number((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_PHONE_NUMBER))));
+            user.setAndroid_device_id((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_PHONE_ID))));
 
             user.setPython_score_easy((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_PYTHON_EASY_SCORE))));
             user.setPython_score_medium((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_PYTHON_EASY_SCORE))));
@@ -292,7 +291,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
             user.setJava_score_easy((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_EASY_SCORE))));
             user.setJava_score_medium((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_MED_SCORE))));
-            user.setJava_score_easy((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_HARD_SCORE))));
+            user.setJava_score_hard((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_HARD_SCORE))));
 
             user.setCpp_score_easy((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_CPP_EASY_SCORE))));
             user.setCpp_score_medium((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_CPP_MED_SCORE))));
@@ -305,5 +304,12 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         c.close();
         return user;
     }
+
+    
+//    public boolean updateUserScore(String category, int score){
+//        String update = UserTable.COLUMN_USER_PYTHON_EASY_SCORE;
+//        db = getReadableDatabase();
+//        String query = "UPDATE " + UserTable.TABLE_NAME + " SET " update + UserTable.COLUMN + " = ?";
+//    }
 
 }

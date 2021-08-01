@@ -9,7 +9,7 @@ public final class QuizContract {
     public static class UserTable implements  BaseColumns{
         public static final String TABLE_NAME = "user_information";
         public static final String COLUMN_USER_FULL_NAME = "full_name";
-        public static final String COLUMN_USER_PHONE_NUMBER = "phone_number";
+        public static final String COLUMN_USER_PHONE_ID = "android_phone_id";
         public static final String COLUMN_USER_PYTHON_EASY_SCORE = "python_easy";
         public static final String COLUMN_USER_PYTHON_MED_SCORE = "python_med";
         public static final String COLUMN_USER_PYTHON_HARD_SCORE = "python_hard";

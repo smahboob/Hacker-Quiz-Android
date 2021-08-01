@@ -37,8 +37,10 @@ public class DisplayQuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_question);
+
         String category = getIntent().getStringExtra("quiz_type");
         String difficulty_level = getIntent().getStringExtra("difficulty_level");
+        String android_id = getIntent().getStringExtra("user_device_id");
 
         question_statement = findViewById(R.id.text_view_question);
         answerRadioGroup = findViewById(R.id.radio_group);

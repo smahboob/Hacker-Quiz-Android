@@ -6,7 +6,7 @@ import org.parceler.Parcel;
 public class User {
 
     private String full_name;
-    private String phone_number;
+    private String android_device_id;
 
     private int python_score_easy = 0;
     private int python_score_medium = 0;
@@ -24,9 +24,9 @@ public class User {
     private int oop_score_medium = 0;
     private int oop_score_hard = 0;
 
-    public User(String full_name, String phone_number, int python_score_easy, int python_score_medium, int python_score_hard, int java_score_easy, int java_score_medium, int java_score_hard, int cpp_score_easy, int cpp_score_medium, int cpp_score_hard, int oop_score_easy, int oop_score_medium, int oop_score_hard) {
+    public User(String full_name, String android_device_id, int python_score_easy, int python_score_medium, int python_score_hard, int java_score_easy, int java_score_medium, int java_score_hard, int cpp_score_easy, int cpp_score_medium, int cpp_score_hard, int oop_score_easy, int oop_score_medium, int oop_score_hard) {
         this.full_name = full_name;
-        this.phone_number = phone_number;
+        this.android_device_id = android_device_id;
         this.python_score_easy = python_score_easy;
         this.python_score_medium = python_score_medium;
         this.python_score_hard = python_score_hard;
@@ -41,20 +41,20 @@ public class User {
         this.oop_score_hard = oop_score_hard;
     }
 
-    public User(String full_name, String phone_number) {
+    public User(String full_name, String android_device_id) {
         this.full_name = full_name;
-        this.phone_number = phone_number;
+        this.android_device_id = android_device_id;
     }
 
     public User(){
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getAndroid_device_id() {
+        return android_device_id;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setAndroid_device_id(String android_device_id) {
+        this.android_device_id = android_device_id;
     }
 
     public int getPython_score_easy() {
@@ -152,7 +152,6 @@ public class User {
     public void setOop_score_hard(int oop_score_hard) {
         this.oop_score_hard = oop_score_hard;
     }
-
 
     public String getFull_name() {
         return full_name;
