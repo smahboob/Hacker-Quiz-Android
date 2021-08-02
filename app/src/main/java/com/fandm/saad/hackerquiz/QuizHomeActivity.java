@@ -2,18 +2,14 @@ package com.fandm.saad.hackerquiz;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.fandm.saad.hackerquiz.database.QuizDatabaseHelper;
 import com.fandm.saad.hackerquiz.models.User;
-
 import org.parceler.Parcels;
-
 import java.text.MessageFormat;
 import java.util.Objects;
 
@@ -22,6 +18,9 @@ public class QuizHomeActivity extends AppCompatActivity {
     private ProgressBar python_easy, python_med, python_hard, java_easy, java_med, java_hard, cpp_easy, cpp_med, cpp_hard, oop_easy, oop_med, oop_hard;
     private Button python_btn, java_btn, cpp_btn, oop_btn;
     private TextView python_easy_text, python_med_text, python_hard_text,  java_easy_text, java_med_text, java_hard_text, cpp_easy_text, cpp_med_text, cpp_hard_text, oop_easy_text, oop_med_text, oop_hard_text;
+    private User current_user;
+    private QuizDatabaseHelper databaseHelper;
+    String device_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +35,13 @@ public class QuizHomeActivity extends AppCompatActivity {
         //initialize stuff
         initializeViews();
 
-        QuizDatabaseHelper databaseHelper = new QuizDatabaseHelper(this);
+        databaseHelper = new QuizDatabaseHelper(this);
         databaseHelper.getReadableDatabase();
 
         //get user information
-        String device_id = getIntent().getStringExtra("user_device_id");
-        User current_user = databaseHelper.getFullUserInformation(device_id);
+        device_id = getIntent().getStringExtra("user_device_id");
+        current_user = databaseHelper.getFullUserInformation(device_id);
+
 
         String user_name = current_user.getFull_name();
         int idx = user_name.indexOf(" ");
@@ -61,45 +61,53 @@ public class QuizHomeActivity extends AppCompatActivity {
         //assign values
         assignValues(current_user);
 
-        python_btn.setOnClickListener(v -> startQuiz("python", device_id));
-        java_btn.setOnClickListener(v -> startQuiz("java", device_id));
-        cpp_btn.setOnClickListener(v -> startQuiz("cpp", device_id));
-        oop_btn.setOnClickListener(v -> startQuiz("oop", device_id));
+        python_btn.setOnClickListener(v -> startQuiz("python", current_user));
+        java_btn.setOnClickListener(v -> startQuiz("java", current_user));
+        cpp_btn.setOnClickListener(v -> startQuiz("cpp", current_user));
+        oop_btn.setOnClickListener(v -> startQuiz("oop", current_user));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        current_user = databaseHelper.getFullUserInformation(device_id);
+        assignValues(current_user);
     }
 
     private void assignValues(User current_user) {
-        python_easy.setProgress(current_user.getPython_score_easy());
-        python_med.setProgress(current_user.getPython_score_medium());
-        python_hard.setProgress(current_user.getPython_score_hard());
 
-        java_easy.setProgress(current_user.getJava_score_easy());
-        java_med.setProgress(current_user.getJava_score_medium());
-        java_hard.setProgress(current_user.getJava_score_hard());
+        python_easy.setProgress((int) (Double.parseDouble(current_user.getPython_score_easy())*100));
+        python_med.setProgress((int) (Double.parseDouble(current_user.getPython_score_medium())*100));
+        python_hard.setProgress((int) (Double.parseDouble(current_user.getPython_score_hard())*100));
 
-        cpp_easy.setProgress(current_user.getCpp_score_easy());
-        cpp_med.setProgress(current_user.getCpp_score_medium());
-        cpp_hard.setProgress(current_user.getCpp_score_hard());
+        java_easy.setProgress((int) (Double.parseDouble(current_user.getJava_score_easy()) *100));
+        java_med.setProgress((int) (Double.parseDouble(current_user.getJava_score_medium()) *100));
+        java_hard.setProgress((int) (Double.parseDouble(current_user.getJava_score_hard()) *100));
 
-        oop_easy.setProgress(current_user.getOop_score_easy());
-        oop_med.setProgress(current_user.getOop_score_medium());
-        oop_hard.setProgress(current_user.getOop_score_hard());
+        cpp_easy.setProgress((int) (Double.parseDouble(current_user.getCpp_score_easy()) *100));
+        cpp_med.setProgress((int) (Double.parseDouble(current_user.getCpp_score_medium()) *100));
+        cpp_hard.setProgress((int) (Double.parseDouble(current_user.getCpp_score_hard()) *100));
+
+        oop_easy.setProgress((int) (Double.parseDouble(current_user.getOop_score_easy()) *100));
+        oop_med.setProgress((int) (Double.parseDouble(current_user.getOop_score_medium()) *100));
+        oop_hard.setProgress((int) (Double.parseDouble(current_user.getOop_score_hard()) *100));
 
 
-        python_easy_text.setText(MessageFormat.format("{0}%", current_user.getPython_score_easy()));
-        python_med_text.setText(MessageFormat.format("{0}%", current_user.getPython_score_medium()));
-        python_hard_text.setText(MessageFormat.format("{0}%", current_user.getPython_score_hard()));
+        python_easy_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getPython_score_easy())*100));
+        python_med_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getPython_score_medium())*100));
+        python_hard_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getPython_score_hard())*100));
 
-        java_easy_text.setText(MessageFormat.format("{0}%", current_user.getJava_score_easy()));
-        java_med_text.setText(MessageFormat.format("{0}%", current_user.getJava_score_medium()));
-        java_hard_text.setText(MessageFormat.format("{0}%", current_user.getJava_score_hard()));
+        java_easy_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getJava_score_easy()) *100));
+        java_med_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getJava_score_medium()) *100));
+        java_hard_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getJava_score_hard()) *100));
 
-        cpp_easy_text.setText(MessageFormat.format("{0}%", current_user.getCpp_score_easy()));
-        cpp_med_text.setText(MessageFormat.format("{0}%", current_user.getCpp_score_medium()));
-        cpp_hard_text.setText(MessageFormat.format("{0}%", current_user.getCpp_score_hard()));
+        cpp_easy_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getCpp_score_easy()) *100));
+        cpp_med_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getCpp_score_medium()) *100));
+        cpp_hard_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getCpp_score_hard()) *100));
 
-        oop_easy_text.setText(MessageFormat.format("{0}%", current_user.getOop_score_easy()));
-        oop_med_text.setText(MessageFormat.format("{0}%", current_user.getOop_score_medium()));
-        oop_hard_text.setText(MessageFormat.format("{0}%", current_user.getOop_score_hard()));
+        oop_easy_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getOop_score_easy()) *100));
+        oop_med_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getOop_score_medium()) *100));
+        oop_hard_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getOop_score_hard()) *100));
 
     }
 
@@ -146,10 +154,10 @@ public class QuizHomeActivity extends AppCompatActivity {
 
     }
 
-    private void startQuiz(String type, String android_id) {
+    private void startQuiz(String type, User current_user) {
         Intent start_quiz = new Intent(this, ChooseDifficultyActivity.class);
         start_quiz.putExtra("quiz_type", type);
-        start_quiz.putExtra("user_device_id", android_id);
+        start_quiz.putExtra("current_user", Parcels.wrap(current_user));
         startActivity(start_quiz);
     }
 

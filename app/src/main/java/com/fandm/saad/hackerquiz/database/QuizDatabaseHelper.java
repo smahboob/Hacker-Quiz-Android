@@ -35,19 +35,18 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 UserTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 UserTable.COLUMN_USER_FULL_NAME + " TEXT, " +
                 UserTable.COLUMN_USER_PHONE_ID + " TEXT, " +
-                UserTable.COLUMN_USER_PYTHON_EASY_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_PYTHON_MED_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_PYTHON_HARD_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_JAVA_EASY_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_JAVA_MED_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_JAVA_HARD_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_CPP_EASY_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_CPP_MED_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_CPP_HARD_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_OOP_EASY_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_OOP_MED_SCORE + " INTEGER, " +
-                UserTable.COLUMN_USER_OOP_HARD_SCORE + " INTEGER" +
-                ")";
+                UserTable.COLUMN_USER_PYTHON_EASY_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_PYTHON_MED_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_PYTHON_HARD_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_JAVA_EASY_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_JAVA_MED_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_JAVA_HARD_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_CPP_EASY_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_CPP_MED_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_CPP_HARD_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_OOP_EASY_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_OOP_MED_SCORE + " TEXT, " +
+                UserTable.COLUMN_USER_OOP_HARD_SCORE + " TEXT" + ")";
 
         final String SQL_CREATE_QUESTIONS_TABLE = "CREATE TABLE " +
                 QuestionsTable.TABLE_NAME + " ( " +
@@ -59,8 +58,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 QuestionsTable.COLUMN_ANSWER_4 + " TEXT, " +
                 QuestionsTable.COLUMN_CATEGORY + " TEXT, " +
                 QuestionsTable.COLUMN_DIFFICULTY + " TEXT, " +
-                QuestionsTable.COLUMN_CORRECT_ANSWER + " INTEGER" +
-                ")";
+                QuestionsTable.COLUMN_CORRECT_ANSWER + " INTEGER" + ")";
 
         //executes the above SQL statement
         db.execSQL(SQL_CREATE_USERS_TABLE);
@@ -120,36 +118,70 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     //this creates new question objects and adds them to the database
     private void fillQuestionsTable() {
+        //python easy
         Question q1 = new Question("What is a correct syntax to output \"Hello World\" in Python?",
                 "echo(\"Hello World\")", "touch(\"Hello World\")", "print(\"Hello World\")", "std:out(\"Hello World\")",
                 "python", Question.DIFFICULTY_EASY,3);
         addQuestion(q1);
 
-        Question q2 = new Question("What is a correct syntax to output \"Hello World\" in Java?",
-                "System.print(\"Hello World\")", "System.out.println(\"Hello World\")", "print(\"Hello World\")", "System.out.write(\"Hello World\")",
-                "java", Question.DIFFICULTY_EASY, 2);
+        Question q2 = new Question("How do you create a variable with the floating number 2.8?",
+                "x = floating_number(2.8)", "x = 2.8", "x = \"2.8\"", "All of the above",
+                "python", Question.DIFFICULTY_EASY,2);
         addQuestion(q2);
 
-
-        Question q3 = new Question("How do you create a variable with the floating number 2.8?",
-                "x = floating_number(2.8)", "x = 2.8", "x = \"2.8\"", "All of the above",
+        Question q3 = new Question("What is a correct syntax to return the first character in a string?",
+                "x = sub(\"HelloWorld\")", "x = \"HelloWorld\"[0]", "sub(\"HelloWorld\",0,1)", "\"HelloWorld\"[-1]",
                 "python", Question.DIFFICULTY_EASY,2);
         addQuestion(q3);
 
-        Question q4 = new Question("What is a correct syntax to return the first character in a string?",
-                "x = sub(\"HelloWorld\")", "x = \"HelloWorld\"[0]", "sub(\"HelloWorld\",0,1)", "\"HelloWorld\"[-1]",
-                "python", Question.DIFFICULTY_EASY,2);
-        addQuestion(q4);
-
-        Question q5 = new Question("Which operator can be used to compare two values?",
+        Question q4 = new Question("Which operator can be used to compare two values?",
                 "<>", "><", "==", "=",
                 "python", Question.DIFFICULTY_EASY, 3);
-        addQuestion(q5);
+        addQuestion(q4);
 
-        Question q6 = new Question("Which of the following are objects of built-in type that are mutable?",
+
+        //python medium
+        Question q5 = new Question("Which of the following are objects of built-in type that are mutable?",
                 "Lists", "Strings", "Tuples", "User Input",
                 "python", Question.DIFFICULTY_MEDIUM, 1);
+        addQuestion(q5);
+
+        Question q6 = new Question("Which of the following is raised when a generated error does not fall into any category?",
+                "RuntimeError", "SystemError", "NotImplementedError", "TypeError",
+                "python", Question.DIFFICULTY_MEDIUM, 1);
         addQuestion(q6);
+
+        Question q7 = new Question("Which of the following is the Base class for all errors that occur for numeric calculation?",
+                "StandardError", "ZeroDivisionError", "FloatingPointError", "ArithmeticError",
+                "python", Question.DIFFICULTY_MEDIUM, 4);
+        addQuestion(q7);
+
+        Question q8 = new Question("Which set method will keep only the items that are present in both sets?",
+                "intersection_update() ", "symmetric_difference_update()", "discard()", "issubset()",
+                "python", Question.DIFFICULTY_MEDIUM, 1);
+        addQuestion(q8);
+
+        //python hard
+        Question q9 = new Question("Select the correct code to create a button under a parent window with command processButton?",
+                "Button(set.text= ''Hello'' )", "Button(window ,text= ''Ok'' ,fg= ''black '')", "Button(window ,text= ''Hello'' ,command=processButton)", "Button(text= ''hello'' ,command=processButton)",
+                "python", Question.DIFFICULTY_HARD, 3);
+        addQuestion(q9);
+
+        Question q10 = new Question("Create a class named Car, which will inherit the properties and methods from the Automobile class?",
+                "class Automobile(Car):", "class Car(Automobile):", "Automobile Class(Car):", "class Car(inherit=Automobile)",
+                "python", Question.DIFFICULTY_HARD, 2);
+        addQuestion(q10);
+
+        Question q11 = new Question("Which of the following commands would return the 7 first characters of the file in variable f?",
+                "f = open(\"myFile.txt\", \"r\").readLine(7)", "f = open(\"myFile.txt\", \"r\").read(7)", "f = open(\"myFile.txt\", \"r\").reachCharArray(7)", "f = open(\"myFile.txt\", \"r\")[7]",
+                "python", Question.DIFFICULTY_HARD, 2);
+        addQuestion(q11);
+
+        Question q12 = new Question("What does the following function return: \n x = lambda a : a + 10?",
+                "Loop over argument a 10 times", "Take a negative a argument and convert it to a positive integer", "Multiply argument a by 2, and add 10 to the result.", "Add 10 to argument a, and return the result",
+                "python", Question.DIFFICULTY_HARD, 4);
+        addQuestion(q12);
+
     }
 
     //this inserts the questions into the database
@@ -285,31 +317,49 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
             user.setFull_name((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_FULL_NAME))));
             user.setAndroid_device_id((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_PHONE_ID))));
 
-            user.setPython_score_easy((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_PYTHON_EASY_SCORE))));
-            user.setPython_score_medium((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_PYTHON_EASY_SCORE))));
-            user.setPython_score_hard((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_PYTHON_EASY_SCORE))));
+            user.setPython_score_easy((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_PYTHON_EASY_SCORE))));
+            user.setPython_score_medium((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_PYTHON_MED_SCORE))));
+            user.setPython_score_hard((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_PYTHON_HARD_SCORE))));
 
-            user.setJava_score_easy((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_EASY_SCORE))));
-            user.setJava_score_medium((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_MED_SCORE))));
-            user.setJava_score_hard((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_HARD_SCORE))));
+            user.setJava_score_easy((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_EASY_SCORE))));
+            user.setJava_score_medium((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_MED_SCORE))));
+            user.setJava_score_hard((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_JAVA_HARD_SCORE))));
 
-            user.setCpp_score_easy((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_CPP_EASY_SCORE))));
-            user.setCpp_score_medium((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_CPP_MED_SCORE))));
-            user.setCpp_score_hard((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_CPP_HARD_SCORE))));
+            user.setCpp_score_easy((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_CPP_EASY_SCORE))));
+            user.setCpp_score_medium((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_CPP_MED_SCORE))));
+            user.setCpp_score_hard((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_CPP_HARD_SCORE))));
 
-            user.setOop_score_easy((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_OOP_EASY_SCORE))));
-            user.setOop_score_medium((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_OOP_MED_SCORE))));
-            user.setOop_score_hard((c.getInt(c.getColumnIndex(UserTable.COLUMN_USER_OOP_HARD_SCORE))));
+            user.setOop_score_easy((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_OOP_EASY_SCORE))));
+            user.setOop_score_medium((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_OOP_MED_SCORE))));
+            user.setOop_score_hard((c.getString(c.getColumnIndex(UserTable.COLUMN_USER_OOP_HARD_SCORE))));
         }
         c.close();
         return user;
     }
 
-    
-//    public boolean updateUserScore(String category, int score){
-//        String update = UserTable.COLUMN_USER_PYTHON_EASY_SCORE;
-//        db = getReadableDatabase();
-//        String query = "UPDATE " + UserTable.TABLE_NAME + " SET " update + UserTable.COLUMN + " = ?";
-//    }
+
+    public void updateUserScore(User user){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(UserTable.COLUMN_USER_FULL_NAME, user.getFull_name());
+        cv.put(UserTable.COLUMN_USER_PHONE_ID, user.getAndroid_device_id());
+        cv.put(UserTable.COLUMN_USER_PYTHON_EASY_SCORE, user.getPython_score_easy());
+        cv.put(UserTable.COLUMN_USER_PYTHON_MED_SCORE, user.getPython_score_medium());
+        cv.put(UserTable.COLUMN_USER_PYTHON_HARD_SCORE, user.getPython_score_hard());
+        cv.put(UserTable.COLUMN_USER_JAVA_EASY_SCORE, user.getJava_score_easy());
+        cv.put(UserTable.COLUMN_USER_JAVA_MED_SCORE, user.getJava_score_medium());
+        cv.put(UserTable.COLUMN_USER_JAVA_HARD_SCORE, user.getJava_score_hard());
+        cv.put(UserTable.COLUMN_USER_CPP_EASY_SCORE, user.getCpp_score_easy());
+        cv.put(UserTable.COLUMN_USER_CPP_MED_SCORE, user.getCpp_score_medium());
+        cv.put(UserTable.COLUMN_USER_CPP_HARD_SCORE, user.getCpp_score_hard());
+        cv.put(UserTable.COLUMN_USER_OOP_EASY_SCORE, user.getOop_score_easy());
+        cv.put(UserTable.COLUMN_USER_OOP_MED_SCORE, user.getOop_score_medium());
+        cv.put(UserTable.COLUMN_USER_OOP_HARD_SCORE, user.getOop_score_hard());
+
+        String whereClause = UserTable.COLUMN_USER_PHONE_ID +"='";
+        database.update(UserTable.TABLE_NAME, cv, whereClause+user.getAndroid_device_id()+"'", null);
+        database.close();
+    }
 
 }
