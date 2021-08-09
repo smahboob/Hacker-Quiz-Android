@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:context=".QuizHomeActivity">
+
+
+        <!--Welcome Text and Image-->
+        <LinearLayout
+            android:id="@+id/welcomeNameView"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/home_background"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/welcomeTextMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginStart="30dp"
+                android:gravity="start"
+                tools:text="Hello, Saad"
+                android:textColor="@color/white"
+                android:textSize="35sp" />
+
+            <ImageView
+                android:id="@+id/home_logo"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/circle_cropped_logo"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:contentDescription="@string/logo">
+            </ImageView>
+
+
+        </LinearLayout>
+
+
+        <!--Linear Layout for Python and Java -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--Python-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_background"
+                    android:orientation="vertical">
+
+                    <!--Image, Title, Button-->
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical"
+                       android:padding="10dp"
+                       android:background="@drawable/card_background"
+                       android:gravity="center">
+
+                    <!-- Media -->
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/python_logo"
+                        android:scaleType="centerInside"
+                        android:contentDescription="@string/logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/python_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                       <com.google.android.material.button.MaterialButton
+                           android:id="@+id/python_quiz_button"
+                           style="?attr/badgeStyle"
+                           android:layout_width="140dp"
+                           android:layout_height="40dp"
+                           android:textSize="14sp"
+                           android:text="@string/start_quiz_text"
+                           tools:ignore="DuplicateSpeakableTextCheck" />
+
+                </LinearLayout>
+
+                    <!--Progress Bar-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <!--Progress Bar 1-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/python_easy_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#8BC34A"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/python_easy_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string"/>
+                        </LinearLayout>
+
+                        <!--Progress Bar 2-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/python_medium_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#FF9800"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/python_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string"/>
+                        </LinearLayout>
+
+                        <!--Progress Bar 3-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/python_hard_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#F44336"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/python_hard_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+            <!--Java-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_background"
+                    android:orientation="vertical">
+
+                    <!--Image, Title, Button-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@drawable/card_background"
+                        android:gravity="center">
+
+                        <!-- Media -->
+                        <ImageView
+                            android:layout_width="150dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/java_logo"
+                            android:scaleType="centerInside"
+                            android:contentDescription="@string/logo" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/java_text"
+                            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/java_quiz_button"
+                            style="?attr/badgeStyle"
+                            android:layout_width="140dp"
+                            android:layout_height="40dp"
+                            android:textSize="14sp"
+                            android:text="@string/start_quiz_text"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
+
+                    </LinearLayout>
+
+                    <!--Progress Bar-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <!--Progress Bar 1-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/java_easy_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#8BC34A"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/java_easy_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string"/>
+                        </LinearLayout>
+
+                        <!--Progress Bar 2-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/java_medium_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#FF9800"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/java_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string"/>
+                        </LinearLayout>
+
+                        <!--Progress Bar 3-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/java_hard_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#F44336"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/java_hard_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+
+
+
+
+        <!--Linear Layout for CPP and OPP -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+
+            <!--CPP-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_background"
+                    android:orientation="vertical">
+
+                    <!--Image, Title, Button-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@drawable/card_background"
+                        android:gravity="center">
+
+                        <!-- Media -->
+                        <ImageView
+                            android:layout_width="150dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/cpp_logo"
+                            android:scaleType="centerInside"
+                            android:contentDescription="@string/logo" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cpp_text"
+                            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/cpp_quiz_button"
+                            style="?attr/badgeStyle"
+                            android:layout_width="140dp"
+                            android:layout_height="40dp"
+                            android:textSize="14sp"
+                            android:text="@string/start_quiz_text"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
+
+                    </LinearLayout>
+
+                    <!--Progress Bar-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <!--Progress Bar 1-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/cpp_easy_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#8BC34A"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/cpp_easy_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string"/>
+                        </LinearLayout>
+
+                        <!--Progress Bar 2-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/cpp_medium_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#FF9800"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/cpp_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string"/>
+                        </LinearLayout>
+
+                        <!--Progress Bar 3-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/cpp_hard_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#F44336"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/cpp_hard_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+            <!--OPP-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_background"
+                    android:orientation="vertical">
+
+                    <!--Image, Title, Button-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:background="@drawable/card_background"
+                        android:gravity="center">
+
+                        <!-- Media -->
+                        <ImageView
+                            android:layout_width="150dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/oop"
+                            android:scaleType="centerInside"
+                            android:contentDescription="@string/logo" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/oop_text"
+                            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/oop_quiz_button"
+                            style="?attr/badgeStyle"
+                            android:layout_width="140dp"
+                            android:layout_height="40dp"
+                            android:textSize="14sp"
+                            android:text="@string/start_quiz_text"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
+
+                    </LinearLayout>
+
+                    <!--Progress Bar-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <!--Progress Bar 1-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/oop_easy_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#8BC34A"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/oop_easy_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string"/>
+
+                        </LinearLayout>
+
+                        <!--Progress Bar 2-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/oop_medium_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#FF9800"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/oop_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string"/>
+
+                        </LinearLayout>
+
+                        <!--Progress Bar 3-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ProgressBar
+                                android:id="@+id/oop_hard_progress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:max="100"
+                                android:indeterminateTint="#F44336"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:progressDrawable="@drawable/circle" />
+
+                            <TextView
+                                android:id="@+id/oop_hard_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_percentage_string" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
