@@ -139,48 +139,108 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "python", Question.DIFFICULTY_EASY, 3);
         addQuestion(q4);
 
-
-        //python medium
-        Question q5 = new Question("Which of the following are objects of built-in type that are mutable?",
-                "Lists", "Strings", "Tuples", "User Input",
-                "python", Question.DIFFICULTY_MEDIUM, 1);
+        Question q5 = new Question("L1 = [20, 40, 60, 80] \n L2 = [20, 40, “60”, 80]?",
+                "L1 and L2 are equal", "L1 and L2 hold same types", "L1 and L2 are not equal", "L2 is illegal list type",
+                "python", Question.DIFFICULTY_EASY, 3);
         addQuestion(q5);
 
-        Question q6 = new Question("Which of the following is raised when a generated error does not fall into any category?",
-                "RuntimeError", "SystemError", "NotImplementedError", "TypeError",
-                "python", Question.DIFFICULTY_MEDIUM, 1);
+        Question q6 = new Question("Consider the following for loop \n for x in range(0.5, 5.5, 0.5):?",
+                "Last value of x is 0.6", "Last value of x is 6", "Each loop skips the value of x by 5.5", "Last Value of x is 5.5",
+        "python", Question.DIFFICULTY_EASY, 4);
         addQuestion(q6);
 
-        Question q7 = new Question("Which of the following is the Base class for all errors that occur for numeric calculation?",
-                "StandardError", "ZeroDivisionError", "FloatingPointError", "ArithmeticError",
-                "python", Question.DIFFICULTY_MEDIUM, 4);
+        Question q7 = new Question("How to declare a set in python?",
+                "x = set()", "x = list.as_set()", "x = {}", "x = hashset()",
+                "python", Question.DIFFICULTY_EASY, 4);
         addQuestion(q7);
 
-        Question q8 = new Question("Which set method will keep only the items that are present in both sets?",
-                "intersection_update() ", "symmetric_difference_update()", "discard()", "issubset()",
-                "python", Question.DIFFICULTY_MEDIUM, 1);
+        Question q8 = new Question("What is the difference between a list and a tuple?",
+                "Tuple is immutable and a list is not", "Tuple is mutable and a list is not", "Both are same", "Tuple cannot store strings unlike lists.",
+                "python", Question.DIFFICULTY_EASY, 1);
         addQuestion(q8);
 
-        //python hard
-        Question q9 = new Question("Select the correct code to create a button under a parent window with command processButton?",
-                "Button(set.text= ''Hello'' )", "Button(window ,text= ''Ok'' ,fg= ''black '')", "Button(window ,text= ''Hello'' ,command=processButton)", "Button(text= ''hello'' ,command=processButton)",
-                "python", Question.DIFFICULTY_HARD, 3);
+        Question q9 = new Question("Which of the following is true about dictionaries?",
+                "Every item must be of the same type", "Item values can be updated", "A key value cannot be a booleans.", "A dictionary can store multiple items with same key.",
+                "python", Question.DIFFICULTY_EASY, 2);
         addQuestion(q9);
 
-        Question q10 = new Question("Create a class named Car, which will inherit the properties and methods from the Automobile class?",
-                "class Automobile(Car):", "class Car(Automobile):", "Automobile Class(Car):", "class Car(inherit=Automobile)",
-                "python", Question.DIFFICULTY_HARD, 2);
+        Question q10 = new Question("In a regular expression the asterisks (*) specifies?\"",
+                "Matches any whitespace characters", "zero or more repetitions of the preceding RE", "Matches any non-alphanumeric character", "Find all substrings where the RE matches, and returns them as a list.",
+                "python", Question.DIFFICULTY_EASY, 2);
         addQuestion(q10);
 
-        Question q11 = new Question("Which of the following commands would return the 7 first characters of the file in variable f?",
-                "f = open(\"myFile.txt\", \"r\").readLine(7)", "f = open(\"myFile.txt\", \"r\").read(7)", "f = open(\"myFile.txt\", \"r\").reachCharArray(7)", "f = open(\"myFile.txt\", \"r\")[7]",
-                "python", Question.DIFFICULTY_HARD, 2);
+
+        //python medium
+        Question q11 = new Question("Which operator has higher precedence in the following list?",
+                "% (Modulus)", "** (Exponent)", "& (BitWise AND)", "> (Comparison)",
+                "python", Question.DIFFICULTY_MEDIUM, 2);
         addQuestion(q11);
 
-        Question q12 = new Question("What does the following function return: \n x = lambda a : a + 10?",
+        Question q12 = new Question("Which of the following are objects of built-in type that are mutable?",
+                "Lists", "Strings", "Tuples", "User Input",
+                "python", Question.DIFFICULTY_MEDIUM, 1);
+        addQuestion(q12);
+
+        Question q13 = new Question("Which of the following is raised when a generated error does not fall into any category?",
+                "RuntimeError", "SystemError", "NotImplementedError", "TypeError",
+                "python", Question.DIFFICULTY_MEDIUM, 1);
+        addQuestion(q13);
+
+        Question q14 = new Question("Which of the following is the Base class for all errors that occur for numeric calculation?",
+                "StandardError", "ZeroDivisionError", "FloatingPointError", "ArithmeticError",
+                "python", Question.DIFFICULTY_MEDIUM, 4);
+        addQuestion(q14);
+
+        Question q15 = new Question("Which set method will keep only the items that are present in both sets?",
+                "intersection_update() ", "symmetric_difference_update()", "discard()", "issubset()",
+                "python", Question.DIFFICULTY_MEDIUM, 1);
+        addQuestion(q15);
+
+        Question q16 = new Question("What is true about exceptions in Python?",
+                "Python does not allow you to create your own exceptions.", "Exceptions are strings.", "Exceptions are objects.", "There are no exceptions for invalid input.",
+                "python", Question.DIFFICULTY_MEDIUM, 3);
+        addQuestion(q16);
+
+        Question q17 = new Question("What purpose does difflib from python standard library serve?",
+                "This module provides different libraries required to run a function.", "This module provides the git difference in libraries of two similar files.", "This module is part of git standard library, not python.", "This module provides classes and functions for comparing sequences",
+                "python", Question.DIFFICULTY_MEDIUM, 4);
+        addQuestion(q17);
+
+        Question q18 = new Question("How is pprint different from print?",
+                "Both are the same.", "pprint can sort an array of numbers unlike print.", "pprint provides capability to pretty-print arbitrary Python data structure.","print can output more than 500 lines unlike pprint",
+                "python", Question.DIFFICULTY_MEDIUM, 3);
+        addQuestion(q18);
+
+        Question q19 = new Question("What is true about exceptions in Python?",
+                "The glob module finds all the path names matching a specified pattern.", "You are not allowed to put multiple different types of elements in a list.", "Python sets are ordered and no repeated values are allowed.", "A module named pickle is used for image resizing.",
+                "python", Question.DIFFICULTY_MEDIUM, 1);
+        addQuestion(q19);
+
+        Question q20 = new Question("What does the datetime module provide with?",
+                "The datetime module return an object with only today's date and current time.", "The datetime module supplies classes for manipulating dates and times.", "The datetime module supplies exact GPS coordinates of current user.", "The datetime module returns a list of reminders from google calender.",
+                "python", Question.DIFFICULTY_MEDIUM, 2);
+        addQuestion(q20);
+
+        //python hard
+        Question q21 = new Question("Select the correct code to create a button under a parent window with command processButton?",
+                "Button(set.text= ''Hello'' )", "Button(window ,text= ''Ok'' ,fg= ''black '')", "Button(window ,text= ''Hello'' ,command=processButton)", "Button(text= ''hello'' ,command=processButton)",
+                "python", Question.DIFFICULTY_HARD, 3);
+        addQuestion(q21);
+
+        Question q22 = new Question("Create a class named Car, which will inherit the properties and methods from the Automobile class?",
+                "class Automobile(Car):", "class Car(Automobile):", "Automobile Class(Car):", "class Car(inherit=Automobile)",
+                "python", Question.DIFFICULTY_HARD, 2);
+        addQuestion(q22);
+
+        Question q23 = new Question("Which of the following commands would return the 7 first characters of the file in variable f?",
+                "f = open(\"myFile.txt\", \"r\").readLine(7)", "f = open(\"myFile.txt\", \"r\").read(7)", "f = open(\"myFile.txt\", \"r\").reachCharArray(7)", "f = open(\"myFile.txt\", \"r\")[7]",
+                "python", Question.DIFFICULTY_HARD, 2);
+        addQuestion(q23);
+
+        Question q24 = new Question("What does the following function return: \n x = lambda a : a + 10?",
                 "Loop over argument a 10 times", "Take a negative a argument and convert it to a positive integer", "Multiply argument a by 2, and add 10 to the result.", "Add 10 to argument a, and return the result",
                 "python", Question.DIFFICULTY_HARD, 4);
-        addQuestion(q12);
+        addQuestion(q24);
 
     }
 
@@ -336,7 +396,6 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         c.close();
         return user;
     }
-
 
     public void updateUserScore(User user){
         SQLiteDatabase database = this.getWritableDatabase();
