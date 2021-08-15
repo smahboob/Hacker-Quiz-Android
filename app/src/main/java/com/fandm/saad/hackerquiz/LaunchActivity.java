@@ -22,7 +22,7 @@ public class LaunchActivity extends AppCompatActivity {
     private QuizDatabaseHelper databaseHelper;
     Animation topAnim, bottomAnim;
     ImageView splash_image;
-    private static final int SPLASH_SCREEN = 2000; //means 2 seconds
+    private static final int SPLASH_SCREEN = 1500; //means 2 seconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

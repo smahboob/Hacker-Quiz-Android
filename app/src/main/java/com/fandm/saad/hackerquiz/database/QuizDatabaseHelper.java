@@ -116,8 +116,28 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    private void fillQuestionsTable(){
+        loadPythonQuestions();
+        loadJavaQuestions();
+        loadCppQuestions();
+        loadOopQuestions();
+    }
+
+
+    private void loadOopQuestions() {
+
+    }
+
+    private void loadCppQuestions() {
+
+    }
+
+    private void loadJavaQuestions() {
+
+    }
+
     //this creates new question objects and adds them to the database
-    private void fillQuestionsTable() {
+    private void loadPythonQuestions() {
         //python easy
         Question q1 = new Question("What is a correct syntax to output \"Hello World\" in Python?",
                 "echo(\"Hello World\")", "touch(\"Hello World\")", "print(\"Hello World\")", "std:out(\"Hello World\")",
@@ -221,6 +241,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "python", Question.DIFFICULTY_MEDIUM, 2);
         addQuestion(q20);
 
+
         //python hard
         Question q21 = new Question("Select the correct code to create a button under a parent window with command processButton?",
                 "Button(set.text= ''Hello'' )", "Button(window ,text= ''Ok'' ,fg= ''black '')", "Button(window ,text= ''Hello'' ,command=processButton)", "Button(text= ''hello'' ,command=processButton)",
@@ -241,6 +262,36 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "Loop over argument a 10 times", "Take a negative a argument and convert it to a positive integer", "Multiply argument a by 2, and add 10 to the result.", "Add 10 to argument a, and return the result",
                 "python", Question.DIFFICULTY_HARD, 4);
         addQuestion(q24);
+
+        Question q25 = new Question("What does ~~~~~~5 evaluate to?",
+                "+5", "-11", "+11", "-5",
+                "python", Question.DIFFICULTY_HARD, 1);
+        addQuestion(q25);
+
+        Question q26 = new Question("What is a simple but incomplete version of a function?",
+                "Function", "Stub", "A function developed using bottom-up approach.", "A function developed using top-down approach.",
+                "python", Question.DIFFICULTY_HARD, 2);
+        addQuestion(q26);
+
+        Question q27 = new Question("Which of the following is correct about Python?",
+                "It supports automatic garbage collection.", "It can be easily integrated with C, C++, COM, ActiveX, CORBA, and Java.", "Both of the above.", "None of the above.",
+                "python", Question.DIFFICULTY_HARD, 3);
+        addQuestion(q27);
+
+        Question q28 = new Question("Which of the following statement(s) is TRUE?\nA hash function takes a message of arbitrary length and generates a fixed length code.\nA hash function takes a message of fixed length and generates a code of variable length.\nA hash function may give the same hash value for distinct messages.\n",
+                "I only", "II and III only", "II only", "I and III only",
+                "python", Question.DIFFICULTY_HARD, 4);
+        addQuestion(q28);
+
+        Question q29 = new Question("Which operator is overloaded by the or() function?",
+                "|", "||", "//", "/",
+                "python", Question.DIFFICULTY_HARD, 1);
+        addQuestion(q29);
+
+        Question q30 = new Question("Which function overloads the >> operator?",
+                "more()", "gt()", "ge()", "None of the above",
+                "python", Question.DIFFICULTY_HARD, 4);
+        addQuestion(q30);
 
     }
 

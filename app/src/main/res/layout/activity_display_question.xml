@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:id="@+id/quiz_question_id"
@@ -13,11 +14,15 @@
     <TextView
         android:id="@+id/text_view_question"
         android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:background="#DEDDDD"
+        android:fontFamily="monospace"
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -28,24 +33,28 @@
             android:id="@+id/radio_button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:background="@drawable/unanswered_background"
             android:layout_margin="10dp" />
         <RadioButton
             android:id="@+id/radio_button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:background="@drawable/unanswered_background"
             android:layout_margin="10dp" />
         <RadioButton
             android:id="@+id/radio_button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:background="@drawable/unanswered_background"
             android:layout_margin="10dp" />
         <RadioButton
             android:id="@+id/radio_button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:background="@drawable/unanswered_background"
             android:layout_margin="10dp" />
     </RadioGroup>
@@ -56,5 +65,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/confirm_button_text" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationViewDisplayQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"/>
 
 </LinearLayout>

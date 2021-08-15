@@ -4,10 +4,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.airbnb.lottie.LottieAnimationView;
 import com.fandm.saad.hackerquiz.database.QuizDatabaseHelper;
 import com.fandm.saad.hackerquiz.models.Question;
 import com.fandm.saad.hackerquiz.models.User;
@@ -34,6 +37,7 @@ public class DisplayQuestionActivity extends AppCompatActivity {
     private QuizDatabaseHelper databaseHelper;
     private User current_user;
     private String category, difficulty_level;
+    private LottieAnimationView animationView;
 
 
     @Override
@@ -45,6 +49,10 @@ public class DisplayQuestionActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.action_bar_custom);
         TextView tv = findViewById(R.id.action_bar_title);
         tv.setText(getResources().getString(R.string.quiz_title));
+
+        //animation
+        animationView = findViewById(R.id.animationViewDisplayQuestion);
+
 
         //initialize database
         databaseHelper = new QuizDatabaseHelper(getApplicationContext());
@@ -95,12 +103,18 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
 
     private void check_answer() {
+        animationView.setVisibility(View.VISIBLE);
         answered = true;
         RadioButton rbSelected = findViewById(answerRadioGroup.getCheckedRadioButtonId());
         int answerNr = answerRadioGroup.indexOfChild(rbSelected) + 1;
         if (answerNr == currentQuestion.getCorrect_answer()) {
             score++;
+            animationView.setAnimation(R.raw.correct);
         }
+        else{
+            animationView.setAnimation(R.raw.wrong);
+        }
+        animationView.playAnimation();
         showSolution();
     }
 
@@ -146,6 +160,7 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
     private void showNextQuestion(){
         //set normal background for unanswered
+        animationView.setVisibility(View.INVISIBLE);
         answer_1.setBackground(ContextCompat.getDrawable(this, R.drawable.unanswered_background));
         answer_2.setBackground(ContextCompat.getDrawable(this, R.drawable.unanswered_background));
         answer_3.setBackground(ContextCompat.getDrawable(this, R.drawable.unanswered_background));
