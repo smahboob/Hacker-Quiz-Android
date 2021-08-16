@@ -18,7 +18,7 @@
         android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="#DEDDDD"
+        android:background="@drawable/question_background"
         android:fontFamily="monospace"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -34,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
+            android:padding="10dp"
             android:background="@drawable/unanswered_background"
             android:layout_margin="10dp" />
         <RadioButton
@@ -41,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
+            android:padding="10dp"
             android:background="@drawable/unanswered_background"
             android:layout_margin="10dp" />
         <RadioButton
@@ -48,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
+            android:padding="10dp"
             android:background="@drawable/unanswered_background"
             android:layout_margin="10dp" />
         <RadioButton
@@ -55,6 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
+            android:padding="10dp"
             android:background="@drawable/unanswered_background"
             android:layout_margin="10dp" />
     </RadioGroup>

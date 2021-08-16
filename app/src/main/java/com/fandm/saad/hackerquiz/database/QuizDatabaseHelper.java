@@ -231,7 +231,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "python", Question.DIFFICULTY_MEDIUM, 3);
         addQuestion(q18);
 
-        Question q19 = new Question("What is true about exceptions in Python?",
+        Question q19 = new Question("What is true in Python?",
                 "The glob module finds all the path names matching a specified pattern.", "You are not allowed to put multiple different types of elements in a list.", "Python sets are ordered and no repeated values are allowed.", "A module named pickle is used for image resizing.",
                 "python", Question.DIFFICULTY_MEDIUM, 1);
         addQuestion(q19);
@@ -254,7 +254,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         addQuestion(q22);
 
         Question q23 = new Question("Which of the following commands would return the 7 first characters of the file in variable f?",
-                "f = open(\"myFile.txt\", \"r\").readLine(7)", "f = open(\"myFile.txt\", \"r\").read(7)", "f = open(\"myFile.txt\", \"r\").reachCharArray(7)", "f = open(\"myFile.txt\", \"r\")[7]",
+                "f = open(myFile.txt, \"r\").readLine(7)", "f = open(myFile.txt, \"r\").read(7)", "f = open(myFile.txt, \"r\").reachCharArray(7)", "f = open(myFile.txt, \"r\")[7]",
                 "python", Question.DIFFICULTY_HARD, 2);
         addQuestion(q23);
 
