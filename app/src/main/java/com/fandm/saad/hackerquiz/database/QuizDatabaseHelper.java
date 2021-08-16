@@ -67,6 +67,14 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         fillQuestionsTable();
     }
 
+    //change database version or uninstall if u update database questions
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + UserTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + QuestionsTable.TABLE_NAME);
+        onCreate(db);
+    }
+
     //add a new user to the user table
     public void add_new_user(User user){
 
@@ -108,14 +116,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         return answer;
     }
 
-    //change database version or uninstall if u update database questions
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + UserTable.TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + QuestionsTable.TABLE_NAME);
-        onCreate(db);
-    }
-
+    //load all questions from all category in table
     private void fillQuestionsTable(){
         loadPythonQuestions();
         loadJavaQuestions();
@@ -123,16 +124,69 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         loadOopQuestions();
     }
 
-
+    //load all the oop questions
     private void loadOopQuestions() {
 
     }
 
+    //load all the cpp questions
     private void loadCppQuestions() {
 
     }
 
+    //load all java questions
     private void loadJavaQuestions() {
+        //java easy
+        Question q1 = new Question("What is a correct syntax to output 'Hello World' in Java?",
+                "Console.WriteLine('Hello World')", "print('Hello World')", "echo('Hello World')", "System.out.println('Hello World')",
+                "java", Question.DIFFICULTY_EASY, 4);
+        addQuestion(q1);
+
+        Question q2 = new Question("Java is short for 'JavaScript'",
+                "False ", "True", "Javascript is a script version of Java.", "Java is a dependency for JavaScript.",
+                "java", Question.DIFFICULTY_EASY, 1);
+        addQuestion(q2);
+
+        Question q3 = new Question("How do you start COMMENTS in Java code?",
+                "#...", "//...", "/...", "/^...",
+                "java", Question.DIFFICULTY_EASY, 2);
+        addQuestion(q3);
+
+        Question q4 = new Question("Which data type is used to create a variable named str that should store text?",
+                "Text str", "String str", "string str", "Str str",
+                "java", Question.DIFFICULTY_EASY, 2);
+        addQuestion(q4);
+
+        Question q5 = new Question("How do you create a variable with the numeric value 5?",
+                "x = 5", "num x = 5", "int x = 5", "float x = 5",
+                "java", Question.DIFFICULTY_EASY, 3);
+        addQuestion(q5);
+
+        Question q6 = new Question("How do you create a variable with the floating number 2.8?",
+                "byte x = 2.8f", "float x = 2.8f", "x = 2.8f", "int x = 2.8f",
+                "java", Question.DIFFICULTY_EASY, 2);
+        addQuestion(q6);
+
+        Question q7 = new Question("Which method can be used to find the length of a string?",
+                "length()", "getLength()", "getSize()", "len()",
+                "java", Question.DIFFICULTY_EASY, 1);
+        addQuestion(q7);
+
+        Question q8 = new Question("Which method can be used to return a string in upper case letters?",
+                "upperCase()", "toUpperCase()", "to_upper_case()", "capitalize()",
+                "java", Question.DIFFICULTY_EASY, 2);
+        addQuestion(q8);
+
+        Question q9 = new Question("To declare an array in Java, define the variable type with?",
+                "()", "{}", "[]", "<>",
+                "java", Question.DIFFICULTY_EASY, 3);
+        addQuestion(q9);
+
+        Question q10 = new Question("What is the correct way to create an object called myCar of class named Car?",
+                "class Car = new myCar()", "Car new Car() = myCar", "obj myCar = new Class Car()", "Car myCar = new Car()",
+                "java", Question.DIFFICULTY_EASY, 4);
+        addQuestion(q10);
+
 
     }
 
@@ -293,6 +347,9 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "python", Question.DIFFICULTY_HARD, 4);
         addQuestion(q30);
 
+
+
+
     }
 
     //this inserts the questions into the database
@@ -448,6 +505,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         return user;
     }
 
+    //update the user score after each activity finishes
     public void updateUserScore(User user){
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
