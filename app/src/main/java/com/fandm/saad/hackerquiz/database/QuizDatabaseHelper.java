@@ -126,11 +126,182 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     //load all the oop questions
     private void loadOopQuestions() {
+        //oop easy
+        Question q1 = new Question("Which one of the following is the process where an object of one class receives the properties of objects of another class?",
+                "Encapsulation", "Inheritance", "Polymorphism", "Modularity",
+                "oop", Question.DIFFICULTY_EASY,3);
+        addQuestion(q1);
+
+        Question q2 = new Question("What is an example of dynamic binding?",
+                "Any method", "Method overloading", "Method overriding", "Compiling",
+                "oop", Question.DIFFICULTY_EASY,3);
+        addQuestion(q2);
+
+        Question q3 = new Question("For which case would the use of a static attribute be appropriate?",
+                "The number of people in each house in a small neighborhood", "The lot size for each house in a small neighborhood",
+                "The color of each house in a small neighborhood", "The weather conditions for each house in a small neighborhood",
+                "oop", Question.DIFFICULTY_EASY,4);
+        addQuestion(q3);
+
+        Question q4 = new Question("Why would you create an abstract class, if it can have no real instances?",
+                "To avoid redundant coding in children", "To explore a hypothetical class",
+                "To prevent unwanted method implementation", "To reserve memory for an unspecified class type",
+                "oop", Question.DIFFICULTY_EASY,1);
+        addQuestion(q4);
+
+        Question q5 = new Question("When does static binding happen?",
+                "Only when you export", "Both at compile time and runtime",
+                "At compile time", "At runtime",
+                "oop", Question.DIFFICULTY_EASY,3);
+        addQuestion(q5);
+
+        //oop medium
+        Question q6 = new Question("What is encapsulation?",
+                "Defining classes by focusing on what is important for a purpose", "Hiding the data and implementation details within a class",
+                "Making all methods private", "Using words to define classes",
+                "oop", Question.DIFFICULTY_MEDIUM,2);
+        addQuestion(q6);
+
+        Question q7 = new Question("Which code creates a new object from the Employee class?",
+                "Employee current Employee = Employee.Create();", "Employee current Employee = new Employee();",
+                "Employee currentEmployee;", "Employee currentEmployee = Employee.New();",
+                "oop", Question.DIFFICULTY_MEDIUM,2);
+        addQuestion(q7);
+
+        Question q8 = new Question("Which type of constructor cannot have a return type?",
+                "Default", "Copy",
+                "Parameterized", "Constructors do not have a return type",
+                "oop", Question.DIFFICULTY_MEDIUM,4);
+        addQuestion(q8);
+
+        Question q9 = new Question("Which type of inheritance ,when done continuously, is similar to a tree structure?",
+                "Multilevel", "Hierarchical and multiple",
+                "Hierarchical", "Multiple",
+                "oop", Question.DIFFICULTY_MEDIUM,4);
+        addQuestion(q9);
+
+        Question q10 = new Question("Which of the following is NOT an advantage of using getters and setters?",
+                "Getters and setters can speed up compilation.", "Getters and setters provide encapsulation of behavior.",
+                "Getters and setters provide a debugging point for when a property changes at runtime.", "Getters and setters permit different access levels.",
+                "oop", Question.DIFFICULTY_MEDIUM,1);
+        addQuestion(q10);
+
+        //oop hard
+        Question q11 = new Question("In context of OOP, what is association?",
+                "Association is a relationship where all objects have their own life cycle and there is no owner.",
+                "Association is the process where model elements cooperate to provide higher-level behavior.",
+                "Association is whole/part relationship where one object is composed of one or more other objects, each of which is considered a part of the whole.",
+                " Association is where all objects have their own life cycle, but there is ownership, and child objects can not belong to another parent object.",
+                "oop", Question.DIFFICULTY_MEDIUM,1);
+        addQuestion(q11);
+
+        Question q12 = new Question("What is the result of using more abstraction?",
+                "It can increase code vulnerability", "It can make code unsafe",
+                "It can limit code readability", "It can be safer for coding",
+                "oop", Question.DIFFICULTY_MEDIUM,3);
+        addQuestion(q12);
+
+        Question q13 = new Question("Which type of function among the following shows polymorphism?",
+                "Inline function", "Undefined function",
+                "Virtual function", "Class member function",
+                "oop", Question.DIFFICULTY_MEDIUM,3);
+        addQuestion(q13);
+
+        Question q14 = new Question("What is the relationship between abstraction and encapsulation?",
+                "Abstraction is about making relevant information visible, while encapsulation enables a programmer to implement the desired level of abstraction.",
+                "Abstraction and encapsulation are essentially the same.",
+                "Abstraction and encapsulation are unrelated.",
+                "Encapsulation is about making relevant information visible, while abstraction enables a programmer to implement the desired level of encapsulation.",
+                "oop", Question.DIFFICULTY_MEDIUM,1);
+        addQuestion(q14);
+
+        Question q15 = new Question("There are five classes. Class E is derived from class D, D from C, C from B, and B from A. Which class constructor(s) will be called first if the object of E or D is created?",
+                "C", "A",
+                "B", "C and B",
+                "oop", Question.DIFFICULTY_MEDIUM,2);
+        addQuestion(q15);
 
     }
 
     //load all the cpp questions
     private void loadCppQuestions() {
+        //cpp easy
+        Question q1 = new Question("What is a correct syntax to output 'Hello World' in C++?",
+                "Console.WriteLine('Hello World')", "print('Hello World')", "cout << 'Hello World'", "System.out.println('Hello World')",
+                "cpp", Question.DIFFICULTY_EASY,3);
+        addQuestion(q1);
+
+        Question q2 = new Question("Which data type is used to create a variable that should store text?",
+                "String", "string", "txt", "myString",
+                "cpp", Question.DIFFICULTY_EASY,1);
+        addQuestion(q2);
+
+        Question q3 = new Question("Which method can be used to find the length of a string?",
+                "len()", "getSize()", "length()", "getLength()",
+                "cpp", Question.DIFFICULTY_EASY,3);
+        addQuestion(q3);
+
+        Question q4 = new Question("Which header file lets us work with input and output objects?",
+                "#include <stream>", "#include <inputstr>", "#include <iostream>", "#include <iosstring>",
+                "cpp", Question.DIFFICULTY_EASY,3);
+        addQuestion(q4);
+
+        Question q5 = new Question("To declare an array in C++, define the variable type with:",
+                "()", "[]", "{}", "<>",
+                "cpp", Question.DIFFICULTY_EASY,2);
+        addQuestion(q5);
+
+        //cpp medium
+        Question q6 = new Question("Choose the pure virtual function definition from the following?",
+                "virtual void f()=0 { }", " void virtual f()=0 { }", "virtual void f() {} = 0;", "None of the above.",
+                "cpp", Question.DIFFICULTY_MEDIUM,4);
+        addQuestion(q6);
+
+        Question q7 = new Question("'cin’ is an __",
+                "Class", "Object", "Package", "Namespace",
+                "cpp", Question.DIFFICULTY_MEDIUM,2);
+        addQuestion(q7);
+
+        Question q8 = new Question("Objects created using new operator are stored in __ memory?",
+                "Heap", "Cache", "Stack", "None of the above",
+                "cpp", Question.DIFFICULTY_MEDIUM,1);
+        addQuestion(q8);
+
+        Question q9 = new Question("A single line comment in C++ language source code can begin with _____?",
+                ";", ":", "/*", "//",
+                "cpp", Question.DIFFICULTY_MEDIUM,4);
+        addQuestion(q9);
+
+        Question q15 = new Question("Which of the following is not a valid ofstream argument?",
+                "ios::app", "ios::trunc", "ios::create", "ios::noreplace",
+                "cpp", Question.DIFFICULTY_MEDIUM,3);
+        addQuestion(q15);
+
+        //hard
+        Question q10 = new Question("Which of the following is the proper declaration of a pointer?",
+                "int x;", "int &x;", "ptr x;", "int *x;",
+                "cpp", Question.DIFFICULTY_HARD,4);
+        addQuestion(q10);
+
+        Question q11 = new Question("Which of the following gives the memory address of integer variable a?",
+                "*a;", "a;", "&a;", "address(a);",
+                "cpp", Question.DIFFICULTY_HARD,3);
+        addQuestion(q11);
+
+        Question q12 = new Question("Which of the following gives the memory address of a pointer a?",
+                "new", "malloc", "create", "value",
+                "cpp", Question.DIFFICULTY_HARD,1);
+        addQuestion(q12);
+
+        Question q13 = new Question("Which of the following is the proper keyword to allocate memory?",
+                "a;", "*a;", "&a;", "address(a);",
+                "cpp", Question.DIFFICULTY_HARD,1);
+        addQuestion(q13);
+
+        Question q14 = new Question("Which of the following is the proper keyword to deallocate memory?",
+                "free", "delete", "clear", "remove",
+                "cpp", Question.DIFFICULTY_HARD,2);
+        addQuestion(q14);
 
     }
 
@@ -187,6 +358,79 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "java", Question.DIFFICULTY_EASY, 4);
         addQuestion(q10);
 
+
+        //java medium
+        Question q11 = new Question("What is the default value of double variable?",
+                "0.0d", "0.0f", "0", "not defined",
+                "java", Question.DIFFICULTY_MEDIUM, 1);
+        addQuestion(q11);
+
+        Question q12 = new Question("Which of the following is true about private access modifier?",
+                "Variables, methods and constructors which are declared private can be accessed only by the members of the same class.",
+                "Variables, methods and constructors which are declared private can be accessed by any class lying in same package.",
+                "Variables, methods and constructors which are declared private in the superclass can be accessed only by its child class.",
+                "None of the above.",
+                "java", Question.DIFFICULTY_MEDIUM, 1);
+        addQuestion(q12);
+
+        Question q13 = new Question("What is an immutable object?",
+                "An immutable object is an instance of an abstract class.",
+                "An immutable object can't be changed once it is created.",
+                "An immutable object can be changed once it is created.",
+                "None of the below",
+                "java", Question.DIFFICULTY_MEDIUM, 2);
+        addQuestion(q13);
+
+        Question q14 = new Question("What is an applet?",
+                "Applet is a standalone java program.",
+                "Applet is a tool.",
+                "Applet is a run time environment.",
+                "An applet is a Java program that runs in a Web browser.",
+                "java", Question.DIFFICULTY_MEDIUM, 4);
+        addQuestion(q14);
+
+        Question q15 = new Question("What is synchronization?",
+                "Synchronization is the process of writing the state of an object to byte stream.",
+                "Synchronization is the process of writing the state of an object to another object.",
+                "Synchronization is the capability to control the access of multiple threads to shared resources.",
+                "None of the above.",
+                "java", Question.DIFFICULTY_MEDIUM, 3);
+        addQuestion(q15);
+
+        Question q16 = new Question("Which method must be implemented by all threads?",
+                "wait()", "start()", "stop()", "run()",
+                "java", Question.DIFFICULTY_MEDIUM, 4);
+        addQuestion(q16);
+
+        //java hard
+        Question q17 = new Question("Which of the below are reserved keyword in Java?",
+                "array", "goto", "null", "number",
+                "java", Question.DIFFICULTY_HARD, 2);
+        addQuestion(q17);
+
+        Question q18 = new Question("What are the valid statements for static keyword in Java?",
+                "The static block in a class is executed every time an object of class is created.", "Methods cannot be static" ,
+                "We can have static method implementations in interface.", "We can define static block inside a method.",
+                "java", Question.DIFFICULTY_HARD, 3);
+        addQuestion(q18);
+
+        Question q19 = new Question("What is the use of final keyword in Java?",
+                "When a class is made final, a sub class of it can not be created.", "When a method is final, it can not be overridden.",
+                "When a variable is final, it can be assigned value only once.", "All of the above",
+                "java", Question.DIFFICULTY_HARD, 4);
+        addQuestion(q19);
+
+        Question q20 = new Question("Which of the following is/are advantages of packages?",
+                "Classes, even though they are visible outside their package, can have fields visible to packages only.",
+                "Packages cannot avoid name clashes.",
+                "We cannot have hidden classes that are used by the packages, but not visible outside.", "All of the above",
+                "java", Question.DIFFICULTY_HARD, 1);
+        addQuestion(q20);
+
+        Question q21 = new Question("Java programs are?",
+                "Faster than others", "Platform independent", "Not reusable", "Not scalable",
+                "java", Question.DIFFICULTY_HARD, 2);
+        addQuestion(q21);
 
     }
 
