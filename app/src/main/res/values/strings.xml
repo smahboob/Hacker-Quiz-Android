@@ -31,5 +31,6 @@
     <string name="quiz_title">Hacker Quiz</string>
     <string name="register_user">Welcome</string>
     <string name="button_text_finish">Finish</string>
+    <string name="str_home">home</string>
 
 </resources>

@@ -469,7 +469,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
         Question q7 = new Question("How to declare a set in python?",
                 "x = set()", "x = list.as_set()", "x = {}", "x = hashset()",
-                "python", Question.DIFFICULTY_EASY, 4);
+                "python", Question.DIFFICULTY_EASY, 1);
         addQuestion(q7);
 
         Question q8 = new Question("What is the difference between a list and a tuple?",
@@ -576,7 +576,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "python", Question.DIFFICULTY_HARD, 3);
         addQuestion(q27);
 
-        Question q28 = new Question("Which of the following statement(s) is TRUE?\nA hash function takes a message of arbitrary length and generates a fixed length code.\nA hash function takes a message of fixed length and generates a code of variable length.\nA hash function may give the same hash value for distinct messages.\n",
+        Question q28 = new Question("Which of the following statement(s) is TRUE?\n\n1) A hash function takes a message of arbitrary length and generates a fixed length code.\n\n2)A hash function takes a message of fixed length and generates a code of variable length.\n\n3)A hash function may give the same hash value for distinct messages.",
                 "I only", "II and III only", "II only", "I and III only",
                 "python", Question.DIFFICULTY_HARD, 4);
         addQuestion(q28);

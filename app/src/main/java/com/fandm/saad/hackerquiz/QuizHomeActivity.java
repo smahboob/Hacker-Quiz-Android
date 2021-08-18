@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -28,8 +30,8 @@ public class QuizHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_home);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.action_bar_custom);
-        TextView tv = findViewById(R.id.action_bar_title);
+        getSupportActionBar().setCustomView(R.layout.action_bar_custom_center);
+        TextView tv = findViewById(R.id.action_bar_title_center);
         tv.setText(getResources().getString(R.string.quiz_title));
 
         //initialize stuff

@@ -30,8 +30,8 @@ public class LaunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launch);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.action_bar_custom);
-        TextView tv = findViewById(R.id.action_bar_title);
+        getSupportActionBar().setCustomView(R.layout.action_bar_custom_center);
+        TextView tv = findViewById(R.id.action_bar_title_center);
         tv.setText(getResources().getString(R.string.quiz_title));
 
         //initialize database

@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -40,6 +43,24 @@ public class ChooseDifficultyActivity extends AppCompatActivity {
         hard_btn.setOnClickListener(v -> startQuiz(quiz_type,Question.DIFFICULTY_HARD, current_user));
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
+        MenuItem home_btn = menu.findItem(R.id.back_to_home);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.back_to_home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private void startQuiz(String category, String difficulty, User current_user) {
         Intent startQuiz = new Intent(this, DisplayQuestionActivity.class);

@@ -150,7 +150,7 @@
                                 android:indeterminateTint="#FF9800"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
-                                android:progressDrawable="@drawable/circle" />
+                                android:progressDrawable="@drawable/circle_medium" />
 
                             <TextView
                                 android:id="@+id/python_medium_text"
@@ -173,7 +173,7 @@
                                 android:indeterminateTint="#F44336"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
-                                android:progressDrawable="@drawable/circle" />
+                                android:progressDrawable="@drawable/circle_hard" />
 
                             <TextView
                                 android:id="@+id/python_hard_text"
@@ -287,7 +287,7 @@
                                 android:indeterminateTint="#FF9800"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
-                                android:progressDrawable="@drawable/circle" />
+                                android:progressDrawable="@drawable/circle_medium" />
 
                             <TextView
                                 android:id="@+id/java_medium_text"
@@ -310,7 +310,7 @@
                                 android:indeterminateTint="#F44336"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
-                                android:progressDrawable="@drawable/circle" />
+                                android:progressDrawable="@drawable/circle_hard" />
 
                             <TextView
                                 android:id="@+id/java_hard_text"
@@ -435,7 +435,7 @@
                                 android:indeterminateTint="#FF9800"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
-                                android:progressDrawable="@drawable/circle" />
+                                android:progressDrawable="@drawable/circle_medium" />
 
                             <TextView
                                 android:id="@+id/cpp_medium_text"
@@ -458,7 +458,7 @@
                                 android:indeterminateTint="#F44336"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
-                                android:progressDrawable="@drawable/circle" />
+                                android:progressDrawable="@drawable/circle_hard" />
 
                             <TextView
                                 android:id="@+id/cpp_hard_text"
@@ -573,7 +573,7 @@
                                 android:indeterminateTint="#FF9800"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
-                                android:progressDrawable="@drawable/circle" />
+                                android:progressDrawable="@drawable/circle_medium" />
 
                             <TextView
                                 android:id="@+id/oop_medium_text"
@@ -597,7 +597,7 @@
                                 android:indeterminateTint="#F44336"
                                 android:layout_width="35dp"
                                 android:layout_height="35dp"
-                                android:progressDrawable="@drawable/circle" />
+                                android:progressDrawable="@drawable/circle_hard" />
 
                             <TextView
                                 android:id="@+id/oop_hard_text"
