@@ -26,7 +26,7 @@
     <string name="choose_difficulty_level_text">Choose Difficulty Level</string>
     <string name="sample_percentage_string">0%</string>
     <string name="logo_splash">logo</string>
-
+    <string name="button_text_show">Show Result</string>
     <string name="diff_title">Difficulty Level</string>
     <string name="quiz_title">Hacker Quiz</string>
     <string name="register_user">Welcome</string>

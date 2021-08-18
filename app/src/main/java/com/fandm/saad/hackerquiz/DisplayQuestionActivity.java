@@ -3,6 +3,8 @@ package com.fandm.saad.hackerquiz;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -147,7 +149,7 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
 
         if(questionCounter == questionCountTotal){
-            confirm_button.setText(R.string.button_text_finish);
+            confirm_button.setText(R.string.button_text_show);
         }
         else if (questionCounter < questionCountTotal) {
             confirm_button.setText(R.string.button_text_next);
@@ -254,7 +256,10 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
 
     private void finishQuiz() {
-        finish();
+        Intent showScore = new Intent(DisplayQuestionActivity.this, ShowScore.class);
+        showScore.putExtra("score",score);
+        showScore.putExtra("totalQuestions",questionCountTotal);
+        startActivity(showScore);
+        finishAfterTransition();
     }
-
 }

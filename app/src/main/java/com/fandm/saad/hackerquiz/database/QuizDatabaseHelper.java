@@ -192,19 +192,19 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "Association is the process where model elements cooperate to provide higher-level behavior.",
                 "Association is whole/part relationship where one object is composed of one or more other objects, each of which is considered a part of the whole.",
                 " Association is where all objects have their own life cycle, but there is ownership, and child objects can not belong to another parent object.",
-                "oop", Question.DIFFICULTY_MEDIUM,1);
+                "oop", Question.DIFFICULTY_HARD,1);
         addQuestion(q11);
 
         Question q12 = new Question("What is the result of using more abstraction?",
                 "It can increase code vulnerability", "It can make code unsafe",
                 "It can limit code readability", "It can be safer for coding",
-                "oop", Question.DIFFICULTY_MEDIUM,3);
+                "oop", Question.DIFFICULTY_HARD,3);
         addQuestion(q12);
 
         Question q13 = new Question("Which type of function among the following shows polymorphism?",
                 "Inline function", "Undefined function",
                 "Virtual function", "Class member function",
-                "oop", Question.DIFFICULTY_MEDIUM,3);
+                "oop", Question.DIFFICULTY_HARD,3);
         addQuestion(q13);
 
         Question q14 = new Question("What is the relationship between abstraction and encapsulation?",
@@ -212,13 +212,13 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "Abstraction and encapsulation are essentially the same.",
                 "Abstraction and encapsulation are unrelated.",
                 "Encapsulation is about making relevant information visible, while abstraction enables a programmer to implement the desired level of encapsulation.",
-                "oop", Question.DIFFICULTY_MEDIUM,1);
+                "oop", Question.DIFFICULTY_HARD,1);
         addQuestion(q14);
 
         Question q15 = new Question("There are five classes. Class E is derived from class D, D from C, C from B, and B from A. Which class constructor(s) will be called first if the object of E or D is created?",
                 "C", "A",
                 "B", "C and B",
-                "oop", Question.DIFFICULTY_MEDIUM,2);
+                "oop", Question.DIFFICULTY_HARD,2);
         addQuestion(q15);
 
     }
