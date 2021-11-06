@@ -28,11 +28,16 @@ public class ChooseDifficultyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_difficulty);
 
-        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.action_bar_custom);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0B4879")));
-        TextView tv = findViewById(R.id.action_bar_title);
-        tv.setText(getResources().getString(R.string.diff_title));
+        initialize();
+    }
+
+    private void initialize(){
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle(getResources().getString(R.string.diff_title));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0B4879")));
 
         String quiz_type = getIntent().getStringExtra("quiz_type");
         User current_user = Parcels.unwrap(getIntent().getParcelableExtra("current_user"));
@@ -44,20 +49,11 @@ public class ChooseDifficultyActivity extends AppCompatActivity {
         easy_btn.setOnClickListener(v -> startQuiz( quiz_type, Question.DIFFICULTY_EASY, current_user));
         medium_btn.setOnClickListener(v -> startQuiz( quiz_type,Question.DIFFICULTY_MEDIUM, current_user));
         hard_btn.setOnClickListener(v -> startQuiz(quiz_type,Question.DIFFICULTY_HARD, current_user));
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
-        MenuItem home_btn = menu.findItem(R.id.back_to_home);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.back_to_home){
+    //activate back button to finish the activity
+    public boolean onOptionsItemSelected(MenuItem item){
+        if (item.getItemId() == android.R.id.home) {
             finish();
             return true;
         }
@@ -71,6 +67,6 @@ public class ChooseDifficultyActivity extends AppCompatActivity {
         startQuiz.putExtra("difficulty_level", difficulty);
         startQuiz.putExtra("current_user", Parcels.wrap(current_user));
         startActivity(startQuiz);
-        finishAfterTransition();
+//        finishAfterTransition();
     }
 }

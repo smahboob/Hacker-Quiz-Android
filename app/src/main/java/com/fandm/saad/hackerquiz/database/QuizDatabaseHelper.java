@@ -18,7 +18,7 @@ import java.util.List;
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "HackerQuiz.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
     private SQLiteDatabase db;
 
     //constructor
@@ -402,6 +402,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "java", Question.DIFFICULTY_MEDIUM, 4);
         addQuestion(q16);
 
+
         //java hard
         Question q17 = new Question("Which of the below are reserved keyword in Java?",
                 "array", "goto", "null", "number",
@@ -431,6 +432,47 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "Faster than others", "Platform independent", "Not reusable", "Not scalable",
                 "java", Question.DIFFICULTY_HARD, 2);
         addQuestion(q21);
+
+        Question q22 = new Question("Which of the following is true about JIT compiler?",
+                "It is a component of the runtime environment that improves the performance of Java™ applications by compiling bytecodes to native machine code at run time.",
+                "The instructions compiled by JIT compilers are written in Intermediate Language (IL) code.",
+                "The method is JIT compiled even if it is not called.",
+                "It is a component of the runtime environment that improves the performance of Java™ applications by compiling native machine code to bytecodes at run time.",
+                "java",Question.DIFFICULTY_HARD, 1);
+        addQuestion(q22);
+
+        Question q23 = new Question("Can you tell the difference between equals() method and equality operator (==) in Java?",
+                "Both are same and used to check if two strings are same.",
+                "Equals is a method defined in object class, and == is a binary operator in Java.",
+                "== is used to compare if two objects are equal, while .equals() is used to compare two references.",
+                ".equals() is used for strings and == is used for integer comparison.",
+                "java", Question.DIFFICULTY_MEDIUM, 2);
+        addQuestion(q23);
+
+        Question q24 = new Question("What is the main objective of garbage collection?",
+                "The main objective of this process is to identify any bugs in the program and automatically correct them.",
+                "The main objective of this process is to free up the memory space occupied by the unnecessary and unreachable objects during execution.",
+                "The main objective of this process is to call the destructor written by the programmer and de allocate all memory.",
+                "The main objective of this process is to convert the code into bytecode for proper compilation.",
+                "java", Question.DIFFICULTY_HARD, 2);
+        addQuestion(q24);
+
+        Question q25 = new Question("What makes a HashSet different from a TreeSet?",
+                "HashSet doesn't allow Null objects, whereas TreeSet does allows Null objects to be stored.",
+                "For a HashSet, the hash table is utilized for storing the elements. However, TreeSet makes use of the red-black tree to store the elements.",
+                "Items in HashSet are sorted. However, TreeSet elements are not sorted.",
+                "The average time complexity for HashSet operations (add,contains,get,remove) is O(log(n)), while for similar operations in TreeSet its O(1).",
+                "java",Question.DIFFICULTY_HARD,1);
+        addQuestion(q25);
+
+
+        Question q26 = new Question("What are the differences between constructor and method of a class in Java?",
+                "Constructor has a return type and a method cannot have a return type",
+                "Constructor can be named anything, however the method name must always start with class name.",
+                "Constructor is used for initializing the object state, while Method is used for exposing the object's behavior.",
+                "Constructor has to be invoked on an object, whereas the methods are invoked implicitly.",
+                "java", Question.DIFFICULTY_MEDIUM, 3);
+        addQuestion(q26);
 
     }
 
@@ -595,6 +637,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
 
     }
+
 
     //this inserts the questions into the database
     private void addQuestion(Question question) {

@@ -102,7 +102,7 @@
                        <com.google.android.material.button.MaterialButton
                            android:id="@+id/python_quiz_button"
                            style="?attr/badgeStyle"
-                           android:layout_width="140dp"
+                           android:layout_width="150dp"
                            android:layout_height="40dp"
                            android:textSize="14sp"
                            android:text="@string/start_quiz_text"
@@ -243,7 +243,7 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/java_quiz_button"
                             style="?attr/badgeStyle"
-                            android:layout_width="140dp"
+                            android:layout_width="150dp"
                             android:layout_height="40dp"
                             android:textSize="14sp"
                             android:text="@string/start_quiz_text"
@@ -394,7 +394,7 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/cpp_quiz_button"
                             style="?attr/badgeStyle"
-                            android:layout_width="140dp"
+                            android:layout_width="150dp"
                             android:layout_height="40dp"
                             android:textSize="14sp"
                             android:text="@string/start_quiz_text"
@@ -536,7 +536,7 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/oop_quiz_button"
                             style="?attr/badgeStyle"
-                            android:layout_width="140dp"
+                            android:layout_width="150dp"
                             android:layout_height="40dp"
                             android:textSize="14sp"
                             android:text="@string/start_quiz_text"

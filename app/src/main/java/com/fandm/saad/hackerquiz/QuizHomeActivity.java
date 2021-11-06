@@ -98,21 +98,21 @@ public class QuizHomeActivity extends AppCompatActivity {
         oop_hard.setProgress((int) (Double.parseDouble(current_user.getOop_score_hard()) *100));
 
 
-        python_easy_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getPython_score_easy())*100));
-        python_med_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getPython_score_medium())*100));
-        python_hard_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getPython_score_hard())*100));
+        python_easy_text.setText(MessageFormat.format("E: {0}", MessageFormat.format("{0}%", Double.parseDouble(current_user.getPython_score_easy()) * 100)));
+        python_med_text.setText(MessageFormat.format("M: {0}", MessageFormat.format("{0}%", Double.parseDouble(current_user.getPython_score_medium()) * 100)));
+        python_hard_text.setText(MessageFormat.format("H: {0}", MessageFormat.format("{0}%", Double.parseDouble(current_user.getPython_score_hard()) * 100)));
 
-        java_easy_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getJava_score_easy()) *100));
-        java_med_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getJava_score_medium()) *100));
-        java_hard_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getJava_score_hard()) *100));
+        java_easy_text.setText(MessageFormat.format("E: {0}", MessageFormat.format("{0}%", Double.parseDouble(current_user.getJava_score_easy()) * 100)));
+        java_med_text.setText(MessageFormat.format("M: {0}", MessageFormat.format("{0}%", Double.parseDouble(current_user.getJava_score_medium()) * 100)));
+        java_hard_text.setText(MessageFormat.format("H: {0}", MessageFormat.format("{0}%", Double.parseDouble(current_user.getJava_score_hard()) * 100)));
 
-        cpp_easy_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getCpp_score_easy()) *100));
-        cpp_med_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getCpp_score_medium()) *100));
-        cpp_hard_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getCpp_score_hard()) *100));
+        cpp_easy_text.setText(MessageFormat.format("E: {0}%", Double.parseDouble(current_user.getCpp_score_easy()) *100));
+        cpp_med_text.setText(MessageFormat.format("M: {0}%", Double.parseDouble(current_user.getCpp_score_medium()) *100));
+        cpp_hard_text.setText(MessageFormat.format("H: {0}%", Double.parseDouble(current_user.getCpp_score_hard()) *100));
 
-        oop_easy_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getOop_score_easy()) *100));
-        oop_med_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getOop_score_medium()) *100));
-        oop_hard_text.setText(MessageFormat.format("{0}%", Double.parseDouble(current_user.getOop_score_hard()) *100));
+        oop_easy_text.setText(MessageFormat.format("E: {0}%", Double.parseDouble(current_user.getOop_score_easy()) *100));
+        oop_med_text.setText(MessageFormat.format("M: {0}%", Double.parseDouble(current_user.getOop_score_medium()) *100));
+        oop_hard_text.setText(MessageFormat.format("H: {0}%", Double.parseDouble(current_user.getOop_score_hard()) *100));
 
     }
 

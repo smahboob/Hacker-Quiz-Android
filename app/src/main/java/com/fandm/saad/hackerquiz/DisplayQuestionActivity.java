@@ -1,6 +1,7 @@
 package com.fandm.saad.hackerquiz;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -20,6 +22,7 @@ import com.fandm.saad.hackerquiz.database.QuizDatabaseHelper;
 import com.fandm.saad.hackerquiz.models.Question;
 import com.fandm.saad.hackerquiz.models.User;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import org.parceler.Parcels;
 import java.util.Collections;
@@ -31,7 +34,7 @@ public class DisplayQuestionActivity extends AppCompatActivity {
     private final String TAG = "DisplayQuestion_TAG";
     private TextView question_statement;
     private RadioButton answer_1, answer_2, answer_3, answer_4;
-    private Button confirm_button;
+    private Button confirm_button; private ImageButton reset_button;
     private List<Question> questionList;
 
     private int questionCounter = 0;
@@ -57,20 +60,15 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
+        actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0B4879")));
 
-        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.action_bar_custom);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0B4879")));
-        TextView tv = findViewById(R.id.action_bar_title);
-        tv.setText(getResources().getString(R.string.quiz_title));
-
-        //initialize
         initialize();
+        String title = category.substring(0, 1).toUpperCase() + category.substring(1) +  " Quiz";
+        actionBar.setTitle(title);
 
-        //check which one is clicked
         update_radio_buttons(false,false,false,false);
-
         loadQuiz(category, difficulty_level);
     }
 
@@ -100,28 +98,45 @@ public class DisplayQuestionActivity extends AppCompatActivity {
         answer_1.setOnClickListener(v -> update_radio_buttons(true,false,false,false));
         answer_2.setOnClickListener(v -> update_radio_buttons(false,true,false,false));
         answer_3.setOnClickListener(v -> update_radio_buttons(false,false,true,false));
-        answer_4.setOnClickListener(v -> update_radio_buttons(true,false,false,true));
+        answer_4.setOnClickListener(v -> update_radio_buttons(false,false,false,true));
 
         option1 = findViewById(R.id.radio_card_1);option2 = findViewById(R.id.radio_card_2);
         option3 = findViewById(R.id.radio_card_3);option4 = findViewById(R.id.radio_card_4);
 
 
         confirm_button = findViewById(R.id.button_confirm_next);
+        reset_button = findViewById(R.id.quiz_reset_button);
+
+        reset_button.setOnClickListener(v -> resetQuiz());
         question_display_counter = findViewById(R.id.question_display_counter);
     }
 
+    private void resetQuiz() {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("Restart")
+                .setMessage("Are you sure you want to restart this quiz?")
+                .setPositiveButton(android.R.string.yes, (dialog, which) -> {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
-        MenuItem home_btn = menu.findItem(R.id.back_to_home);
-        return super.onCreateOptionsMenu(menu);
+                    questionCounter = 0;
+
+                    //initialize
+                    initialize();
+
+                    //check which one is clicked
+                    update_radio_buttons(false,false,false,false);
+
+                    loadQuiz(category, difficulty_level);
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.back_to_home){
+
+        if (item.getItemId() == android.R.id.home){
+            Log.d(TAG, "Came to back button");
             finish();
             return true;
         }
@@ -175,7 +190,6 @@ public class DisplayQuestionActivity extends AppCompatActivity {
             answer_selected = 4;
         }
 
-        Log.d(TAG,"radio clicked: " + answer_selected + ", answer is: " + currentQuestion.getCorrect_answer());
 
         if (answer_selected == currentQuestion.getCorrect_answer()) {
             score++;
@@ -240,11 +254,12 @@ public class DisplayQuestionActivity extends AppCompatActivity {
         update_radio_buttons(false,false,false,false);
         answer_1.clearFocus();answer_2.clearFocus();answer_3.clearFocus();answer_4.clearFocus();
 
-        String text = (questionCounter+1) + "/" + questionCountTotal;
-        question_display_counter.setText(text);
-
         //if any questions left, show the questions
         if(questionCounter < questionCountTotal){
+
+            String text = (questionCounter+1) + "/" + questionCountTotal;
+            question_display_counter.setText(text);
+
             currentQuestion = questionList.get(questionCounter);
             question_statement.setText(currentQuestion.getQuestion_statement());
             answer_1.setText(currentQuestion.getAnswer_1());answer_2.setText(currentQuestion.getAnswer_2());

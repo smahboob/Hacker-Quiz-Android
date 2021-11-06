@@ -32,5 +32,8 @@
     <string name="register_user">Welcome</string>
     <string name="button_text_finish">Finish</string>
     <string name="str_home">home</string>
+    <string name="str_info">About</string>
+    <string name="str_restart" />
+    <string name="reset_button_str">resetButton</string>
 
 </resources>

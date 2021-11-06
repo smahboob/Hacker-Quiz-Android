@@ -11,10 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HackerQuiz">
         <activity
-            android:name=".ShowScore"
-            android:parentActivityName=".QuizHomeActivity"
-            android:exported="true" />
-        <activity
             android:name=".LaunchActivity"
             android:exported="true">
             <intent-filter>
@@ -23,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ShowScore"
+            android:parentActivityName=".QuizHomeActivity"
+            android:exported="true" />
+
         <activity
             android:name=".RegisterUserActivity"
             android:exported="true" />
