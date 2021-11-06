@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -31,6 +33,7 @@ public class LaunchActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar_custom_center);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0B4879")));
         TextView tv = findViewById(R.id.action_bar_title_center);
         tv.setText(getResources().getString(R.string.quiz_title));
 

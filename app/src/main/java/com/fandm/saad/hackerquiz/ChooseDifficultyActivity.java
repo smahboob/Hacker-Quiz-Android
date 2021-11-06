@@ -4,6 +4,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.util.Log;
@@ -28,6 +30,7 @@ public class ChooseDifficultyActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar_custom);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0B4879")));
         TextView tv = findViewById(R.id.action_bar_title);
         tv.setText(getResources().getString(R.string.diff_title));
 

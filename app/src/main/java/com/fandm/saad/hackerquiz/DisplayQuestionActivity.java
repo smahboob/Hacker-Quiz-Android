@@ -2,9 +2,12 @@ package com.fandm.saad.hackerquiz;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +35,8 @@ public class DisplayQuestionActivity extends AppCompatActivity {
     private Button confirm_button;
     private List<Question> questionList;
 
+    private CardView cardView;
+
     private int questionCounter = 0;
     private int questionCountTotal;
     private Question currentQuestion;
@@ -55,12 +60,14 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar_custom);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0B4879")));
         TextView tv = findViewById(R.id.action_bar_title);
         tv.setText(getResources().getString(R.string.quiz_title));
 
         //animation
         animationView = findViewById(R.id.animationViewDisplayQuestion);
-
+//        cardView = findViewById(R.id.lottie_card_view_question);
+//        cardView.setVisibility(View.INVISIBLE);
 
         //initialize database
         databaseHelper = new QuizDatabaseHelper(getApplicationContext());
@@ -129,15 +136,16 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
     private void check_answer() {
         animationView.setVisibility(View.VISIBLE);
+//        cardView.setVisibility(View.VISIBLE);
         answered = true;
         RadioButton rbSelected = findViewById(answerRadioGroup.getCheckedRadioButtonId());
         int answerNr = answerRadioGroup.indexOfChild(rbSelected) + 1;
         if (answerNr == currentQuestion.getCorrect_answer()) {
             score++;
-            animationView.setAnimation(R.raw.correct);
+            animationView.setAnimation(R.raw.correct_tick);
         }
         else{
-            animationView.setAnimation(R.raw.wrong);
+            animationView.setAnimation(R.raw.wrong_cross);
         }
         animationView.playAnimation();
         showSolution();
@@ -185,6 +193,7 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
     private void showNextQuestion(){
         //set normal background for unanswered
+//        cardView.setVisibility(View.INVISIBLE);
         animationView.setVisibility(View.INVISIBLE);
         answer_1.setBackground(ContextCompat.getDrawable(this, R.drawable.unanswered_background));
         answer_2.setBackground(ContextCompat.getDrawable(this, R.drawable.unanswered_background));

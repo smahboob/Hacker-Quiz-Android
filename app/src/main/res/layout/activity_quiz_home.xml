@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
+    android:background="@color/white"
     android:layout_height="fill_parent">
 
     <LinearLayout
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
+        android:background="@color/white"
         tools:context=".QuizHomeActivity">
 
 
@@ -18,7 +20,7 @@
         <LinearLayout
             android:id="@+id/welcomeNameView"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="150dp"
             android:background="@drawable/home_background"
             android:gravity="center"
             android:layout_marginBottom="15dp"
@@ -33,11 +35,15 @@
                 android:gravity="start"
                 tools:text="Hello, Saad"
                 android:textColor="@color/white"
-                android:textSize="35sp" />
+                android:textSize="30sp" />
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="0dp"/>
 
             <ImageView
                 android:id="@+id/home_logo"
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="130dp"
                 android:src="@drawable/circle_cropped_logo"
                 android:layout_marginTop="4dp"
@@ -90,6 +96,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/python_text"
+                        android:textColor="@color/black"
                         android:textAppearance="?attr/textAppearanceHeadline6" />
 
                        <com.google.android.material.button.MaterialButton
@@ -130,6 +137,7 @@
 
                             <TextView
                                 android:id="@+id/python_easy_text"
+                                android:textColor="@color/black"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/sample_percentage_string"/>
@@ -155,6 +163,7 @@
                             <TextView
                                 android:id="@+id/python_medium_text"
                                 android:layout_width="wrap_content"
+                                android:textColor="@color/black"
                                 android:layout_height="wrap_content"
                                 android:text="@string/sample_percentage_string"/>
                         </LinearLayout>
@@ -178,6 +187,7 @@
                             <TextView
                                 android:id="@+id/python_hard_text"
                                 android:layout_width="wrap_content"
+                                android:textColor="@color/black"
                                 android:layout_height="wrap_content"
                                 android:text="@string/sample_percentage_string" />
                         </LinearLayout>
@@ -226,6 +236,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/black"
                             android:text="@string/java_text"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -267,6 +278,7 @@
 
                             <TextView
                                 android:id="@+id/java_easy_text"
+                                android:textColor="@color/black"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/sample_percentage_string"/>
@@ -291,6 +303,7 @@
 
                             <TextView
                                 android:id="@+id/java_medium_text"
+                                android:textColor="@color/black"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/sample_percentage_string"/>
@@ -314,6 +327,7 @@
 
                             <TextView
                                 android:id="@+id/java_hard_text"
+                                android:textColor="@color/black"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/sample_percentage_string" />
@@ -329,7 +343,6 @@
 
 
         </LinearLayout>
-
 
 
 
@@ -375,6 +388,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/cpp_text"
+                            android:textColor="@color/black"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <com.google.android.material.button.MaterialButton
@@ -402,6 +416,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:layout_marginEnd="15dp"
+                            android:textColor="@color/black"
                             android:gravity="center">
 
                             <ProgressBar
@@ -417,6 +432,7 @@
                                 android:id="@+id/cpp_easy_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/black"
                                 android:text="@string/sample_percentage_string"/>
                         </LinearLayout>
 
@@ -441,6 +457,7 @@
                                 android:id="@+id/cpp_medium_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/black"
                                 android:text="@string/sample_percentage_string"/>
                         </LinearLayout>
 
@@ -464,6 +481,7 @@
                                 android:id="@+id/cpp_hard_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/black"
                                 android:text="@string/sample_percentage_string" />
                         </LinearLayout>
 
@@ -512,6 +530,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/oop_text"
+                            android:textColor="@color/black"
                             android:textAppearance="?attr/textAppearanceHeadline6" />
 
                         <com.google.android.material.button.MaterialButton
@@ -554,6 +573,7 @@
                                 android:id="@+id/oop_easy_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/black"
                                 android:text="@string/sample_percentage_string"/>
 
                         </LinearLayout>
@@ -579,6 +599,7 @@
                                 android:id="@+id/oop_medium_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/black"
                                 android:text="@string/sample_percentage_string"/>
 
                         </LinearLayout>
@@ -603,6 +624,7 @@
                                 android:id="@+id/oop_hard_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/black"
                                 android:text="@string/sample_percentage_string" />
                         </LinearLayout>
 
