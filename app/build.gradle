@@ -40,9 +40,6 @@ dependencies {
     //material io
     api 'com.google.android.material:material:1.5.0-alpha01'
 
-    //parcel to send data between activities
-    implementation 'org.parceler:parceler-api:1.1.12'
-    annotationProcessor 'org.parceler:parceler:1.1.12'
 
     //lottie animations
     def lottieVersion = "3.4.0"

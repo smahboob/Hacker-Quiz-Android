@@ -2,25 +2,24 @@ package com.fandm.saad.hackerquiz;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.fandm.saad.hackerquiz.database.QuizDatabaseHelper;
 import com.fandm.saad.hackerquiz.models.Question;
 import com.fandm.saad.hackerquiz.models.User;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.snackbar.Snackbar;
 import org.parceler.Parcels;
 import java.util.Collections;
@@ -29,13 +28,11 @@ import java.util.Objects;
 
 public class DisplayQuestionActivity extends AppCompatActivity {
 
+    private final String TAG = "DisplayQuestion_TAG";
     private TextView question_statement;
-    private RadioGroup answerRadioGroup;
     private RadioButton answer_1, answer_2, answer_3, answer_4;
     private Button confirm_button;
     private List<Question> questionList;
-
-    private CardView cardView;
 
     private int questionCounter = 0;
     private int questionCountTotal;
@@ -47,6 +44,10 @@ public class DisplayQuestionActivity extends AppCompatActivity {
     private User current_user;
     private String category, difficulty_level;
     private LottieAnimationView animationView;
+
+    private TextView question_display_counter;
+
+    private MaterialCardView option1, option2, option3, option4;
 
 
     @Override
@@ -64,10 +65,24 @@ public class DisplayQuestionActivity extends AppCompatActivity {
         TextView tv = findViewById(R.id.action_bar_title);
         tv.setText(getResources().getString(R.string.quiz_title));
 
+        //initialize
+        initialize();
+
+        //check which one is clicked
+        update_radio_buttons(false,false,false,false);
+
+        loadQuiz(category, difficulty_level);
+    }
+
+    private void update_radio_buttons(boolean b, boolean b1, boolean b2, boolean b3) {
+        answer_1.setChecked(b);answer_2.setChecked(b1);
+        answer_3.setChecked(b2);answer_4.setChecked(b3);
+    }
+
+
+    private void initialize(){
         //animation
         animationView = findViewById(R.id.animationViewDisplayQuestion);
-//        cardView = findViewById(R.id.lottie_card_view_question);
-//        cardView.setVisibility(View.INVISIBLE);
 
         //initialize database
         databaseHelper = new QuizDatabaseHelper(getApplicationContext());
@@ -78,15 +93,23 @@ public class DisplayQuestionActivity extends AppCompatActivity {
         current_user = Parcels.unwrap(getIntent().getParcelableExtra("current_user"));
 
         question_statement = findViewById(R.id.text_view_question);
-        answerRadioGroup = findViewById(R.id.radio_group);
-        answer_1 = findViewById(R.id.radio_button1);
-        answer_2 = findViewById(R.id.radio_button2);
-        answer_3 = findViewById(R.id.radio_button3);
-        answer_4 = findViewById(R.id.radio_button4);
-        confirm_button = findViewById(R.id.button_confirm_next);
 
-        loadQuiz(category, difficulty_level);
+        answer_1 = findViewById(R.id.radio_button1);answer_2 = findViewById(R.id.radio_button2);
+        answer_3 = findViewById(R.id.radio_button3);answer_4 = findViewById(R.id.radio_button4);
+
+        answer_1.setOnClickListener(v -> update_radio_buttons(true,false,false,false));
+        answer_2.setOnClickListener(v -> update_radio_buttons(false,true,false,false));
+        answer_3.setOnClickListener(v -> update_radio_buttons(false,false,true,false));
+        answer_4.setOnClickListener(v -> update_radio_buttons(true,false,false,true));
+
+        option1 = findViewById(R.id.radio_card_1);option2 = findViewById(R.id.radio_card_2);
+        option3 = findViewById(R.id.radio_card_3);option4 = findViewById(R.id.radio_card_4);
+
+
+        confirm_button = findViewById(R.id.button_confirm_next);
+        question_display_counter = findViewById(R.id.question_display_counter);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -136,11 +159,25 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
     private void check_answer() {
         animationView.setVisibility(View.VISIBLE);
-//        cardView.setVisibility(View.VISIBLE);
         answered = true;
-        RadioButton rbSelected = findViewById(answerRadioGroup.getCheckedRadioButtonId());
-        int answerNr = answerRadioGroup.indexOfChild(rbSelected) + 1;
-        if (answerNr == currentQuestion.getCorrect_answer()) {
+
+        int answer_selected = -1;
+        if (answer_1.isChecked()) {
+            answer_selected = 1;
+        }
+        else if (answer_2.isChecked()){
+            answer_selected = 2;
+        }
+        else if (answer_3.isChecked()){
+            answer_selected = 3;
+        }
+        else if (answer_4.isChecked()){
+            answer_selected = 4;
+        }
+
+        Log.d(TAG,"radio clicked: " + answer_selected + ", answer is: " + currentQuestion.getCorrect_answer());
+
+        if (answer_selected == currentQuestion.getCorrect_answer()) {
             score++;
             animationView.setAnimation(R.raw.correct_tick);
         }
@@ -153,31 +190,30 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
 
     private void showSolution() {
-        answer_1.setBackground(ContextCompat.getDrawable(this, R.drawable.wrong_answer_background));
-        answer_2.setBackground(ContextCompat.getDrawable(this, R.drawable.wrong_answer_background));
-        answer_3.setBackground(ContextCompat.getDrawable(this, R.drawable.wrong_answer_background));
-        answer_4.setBackground(ContextCompat.getDrawable(this, R.drawable.wrong_answer_background));
+        option1.setStrokeColor(Color.parseColor("#FF0000"));option2.setStrokeColor(Color.parseColor("#FF0000"));
+        option3.setStrokeColor(Color.parseColor("#FF0000"));option4.setStrokeColor(Color.parseColor("#FF0000"));
+        option1.setStrokeWidth(2);option2.setStrokeWidth(2);option3.setStrokeWidth(2);option4.setStrokeWidth(2);
 
-        answer_1.setEnabled(false);
-        answer_2.setEnabled(false);
-        answer_3.setEnabled(false);
-        answer_4.setEnabled(false);
+        answer_1.setEnabled(false);answer_2.setEnabled(false);answer_3.setEnabled(false);answer_4.setEnabled(false);
 
         switch (currentQuestion.getCorrect_answer()) {
             case 1:
-                answer_1.setBackground(ContextCompat.getDrawable(this, R.drawable.correct_answer_background));
+                option1.setStrokeColor(Color.parseColor("#00A300"));
+                option1.setStrokeWidth(4);
                 break;
             case 2:
-                answer_2.setBackground(ContextCompat.getDrawable(this, R.drawable.correct_answer_background));
+                option2.setStrokeColor(Color.parseColor("#00A300"));
+                option2.setStrokeWidth(4);
                 break;
             case 3:
-                answer_3.setBackground(ContextCompat.getDrawable(this, R.drawable.correct_answer_background));
+                option3.setStrokeColor(Color.parseColor("#00A300"));
+                option3.setStrokeWidth(4);
                 break;
             case 4:
-                answer_4.setBackground(ContextCompat.getDrawable(this, R.drawable.correct_answer_background));
+                option4.setStrokeColor(Color.parseColor("#00A300"));
+                option4.setStrokeWidth(4);
                 break;
         }
-
 
         if(questionCounter == questionCountTotal){
             confirm_button.setText(R.string.button_text_show);
@@ -192,27 +228,27 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
 
     private void showNextQuestion(){
-        //set normal background for unanswered
-//        cardView.setVisibility(View.INVISIBLE);
         animationView.setVisibility(View.INVISIBLE);
-        answer_1.setBackground(ContextCompat.getDrawable(this, R.drawable.unanswered_background));
-        answer_2.setBackground(ContextCompat.getDrawable(this, R.drawable.unanswered_background));
-        answer_3.setBackground(ContextCompat.getDrawable(this, R.drawable.unanswered_background));
-        answer_4.setBackground(ContextCompat.getDrawable(this, R.drawable.unanswered_background));
-        answer_1.setEnabled(true);
-        answer_2.setEnabled(true);
-        answer_3.setEnabled(true);
-        answer_4.setEnabled(true);
-        answerRadioGroup.clearCheck();
+        option1.setStrokeColor(Color.parseColor("#000000"));option2.setStrokeColor(Color.parseColor("#000000"));
+        option3.setStrokeColor(Color.parseColor("#000000"));option4.setStrokeColor(Color.parseColor("#000000"));
+        option1.setStrokeWidth(1);option2.setStrokeWidth(1);option3.setStrokeWidth(1);option4.setStrokeWidth(1);
+
+        answer_1.setEnabled(true);answer_2.setEnabled(true);
+        answer_3.setEnabled(true);answer_4.setEnabled(true);
+
+
+        update_radio_buttons(false,false,false,false);
+        answer_1.clearFocus();answer_2.clearFocus();answer_3.clearFocus();answer_4.clearFocus();
+
+        String text = (questionCounter+1) + "/" + questionCountTotal;
+        question_display_counter.setText(text);
 
         //if any questions left, show the questions
         if(questionCounter < questionCountTotal){
             currentQuestion = questionList.get(questionCounter);
             question_statement.setText(currentQuestion.getQuestion_statement());
-            answer_1.setText(currentQuestion.getAnswer_1());
-            answer_2.setText(currentQuestion.getAnswer_2());
-            answer_3.setText(currentQuestion.getAnswer_3());
-            answer_4.setText(currentQuestion.getAnswer_4());
+            answer_1.setText(currentQuestion.getAnswer_1());answer_2.setText(currentQuestion.getAnswer_2());
+            answer_3.setText(currentQuestion.getAnswer_3());answer_4.setText(currentQuestion.getAnswer_4());
             confirm_button.setText(R.string.confirm_button_text);
             questionCounter++;
             answered = false;

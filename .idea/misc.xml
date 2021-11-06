@@ -13,13 +13,13 @@
         <entry key="app/src/main/res/drawable/correct_answer_background.xml" value="0.3320175438596491" />
         <entry key="app/src/main/res/drawable/home_background.xml" value="0.22587719298245615" />
         <entry key="app/src/main/res/drawable/question_background.xml" value="0.22587719298245615" />
-        <entry key="app/src/main/res/drawable/unanswered_background.xml" value="0.3320175438596491" />
+        <entry key="app/src/main/res/drawable/unanswered_background.xml" value="0.75" />
         <entry key="app/src/main/res/drawable/verify_icon.xml" value="0.22587719298245615" />
         <entry key="app/src/main/res/drawable/wrong_answer_background.xml" value="0.3320175438596491" />
         <entry key="app/src/main/res/layout/action_bar_custom.xml" value="0.165" />
         <entry key="app/src/main/res/layout/action_bar_custom_center.xml" value="0.21228070175438596" />
         <entry key="app/src/main/res/layout/activity_choose_difficulty.xml" value="0.3078947368421053" />
-        <entry key="app/src/main/res/layout/activity_display_question.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_display_question.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_get_name.xml" value="0.31842105263157894" />
         <entry key="app/src/main/res/layout/activity_launch.xml" value="0.21228070175438596" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />

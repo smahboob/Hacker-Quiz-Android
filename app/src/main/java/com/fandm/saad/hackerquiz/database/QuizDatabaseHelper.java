@@ -18,7 +18,7 @@ import java.util.List;
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "HackerQuiz.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private SQLiteDatabase db;
 
     //constructor
@@ -313,9 +313,9 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "java", Question.DIFFICULTY_EASY, 4);
         addQuestion(q1);
 
-        Question q2 = new Question("Java is short for 'JavaScript'",
-                "False ", "True", "Javascript is a script version of Java.", "Java is a dependency for JavaScript.",
-                "java", Question.DIFFICULTY_EASY, 1);
+        Question q2 = new Question("Which of the following is true'",
+                "JavaScript is a library in Java. ", "Java is short for 'JavaScript", "Javascript is a script version of Java.", "None of the above",
+                "java", Question.DIFFICULTY_EASY, 4);
         addQuestion(q2);
 
         Question q3 = new Question("How do you start COMMENTS in Java code?",
@@ -524,8 +524,8 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "python", Question.DIFFICULTY_MEDIUM, 4);
         addQuestion(q17);
 
-        Question q18 = new Question("How is pprint different from print?",
-                "Both are the same.", "pprint can sort an array of numbers unlike print.", "pprint provides capability to pretty-print arbitrary Python data structure.","print can output more than 500 lines unlike pprint",
+        Question q18 = new Question("What is Scope in Python?",
+                "A scope is a block of code where an object cannot be called.", "Scope is a built in library to draw circles.", "A scope is a block of code where an object in Python remains relevant.","A scope of the program caches all the variable values for later access.",
                 "python", Question.DIFFICULTY_MEDIUM, 3);
         addQuestion(q18);
 
