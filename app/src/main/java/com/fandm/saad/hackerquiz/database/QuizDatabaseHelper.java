@@ -18,7 +18,7 @@ import java.util.List;
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "HackerQuiz.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private SQLiteDatabase db;
 
     //constructor
@@ -462,7 +462,7 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
                 "For a HashSet, the hash table is utilized for storing the elements. However, TreeSet makes use of the red-black tree to store the elements.",
                 "Items in HashSet are sorted. However, TreeSet elements are not sorted.",
                 "The average time complexity for HashSet operations (add,contains,get,remove) is O(log(n)), while for similar operations in TreeSet its O(1).",
-                "java",Question.DIFFICULTY_HARD,1);
+                "java",Question.DIFFICULTY_HARD,2);
         addQuestion(q25);
 
 
